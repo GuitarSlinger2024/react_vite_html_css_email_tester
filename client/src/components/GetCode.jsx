@@ -10,7 +10,7 @@ function GetCode({ mode }) {
   const [folderOptions, setFolderOptions] = useState([])
   const [removeComments, setRemoveComments] = useState('yes') //  yes   no   only   select
   const [removeBlanks, setRemoveBlanks] = useState('remove') //  remove   reduce   leave
-
+  
   useEffect(async () => {
     try {
       fetch('/getAddresses', {

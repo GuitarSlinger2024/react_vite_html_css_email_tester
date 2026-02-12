@@ -5,7 +5,7 @@ function Instructions() {
     <div className="instructions">
       <div className="instruction-inner">
         <h2>Instructions</h2>
-
+        
         <p>
           First, I have re-worked this program so you do not have to be a PHP
           programmer to use it. However, if you would like to use this program

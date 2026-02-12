@@ -7,7 +7,7 @@ function Header({currentDiv, setCurrentDiv}) {
     console.log(div)
     setCurrentDiv(div)
   }
-
+  
   return (
     <header id="top-nav-bar">
       <ul className="header-nav-btns">

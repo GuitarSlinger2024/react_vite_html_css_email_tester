@@ -13,7 +13,7 @@ function AddressList() {
           name="sendTo"
           id="emailInput"
         ></input>
-
+        
         <div class="emailList-container_1">
           <div
             class="datalist"

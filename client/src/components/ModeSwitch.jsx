@@ -15,7 +15,7 @@ function ModeSwitch({mode, setMode}) {
   useEffect(() => {
     body.classList.add(mode)
   }, [])
-
+  
   return (
     <div className="switch"
       onClick={changeMode}
