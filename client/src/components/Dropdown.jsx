@@ -62,8 +62,6 @@ function Dropdown({
   function keyDown(e) {
     if (e.key === 'Enter') {
       e.preventDefault()
-
-
       validateNewInput()
     }
   }
@@ -154,8 +152,10 @@ function Dropdown({
                 .querySelectorAll('.show')
                 .forEach(visible => visible.classList.remove('show'))
               setShowList(true)
+              setValue(myRef.current.textContent)
             }}
             onBlur={() => {
+              validateNewInput()
               setTimeout(() => {
                 setShowList(false)
               }, 150)
