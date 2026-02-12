@@ -163,7 +163,7 @@ function Dropdown({
               <div
                 style={{
                   textAlign: 'center',
-                  width: '100%',
+                  inlineSize: '100%',
                 }}
                 className="empty"
                 onClick={e => {
