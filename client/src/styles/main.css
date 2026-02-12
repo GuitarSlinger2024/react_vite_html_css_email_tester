@@ -1,0 +1,19 @@
+main {
+  position: relative;
+  display: flex;
+  inline-size: calc(100% - 2em);
+  min-inline-size: 40em;
+  block-size: 35em;
+  background-color: var(--main-bkground);
+  padding: 0.3em 1.5em;
+  margin: auto;
+  z-index: 1;
+
+  top: 3.6em;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  border: 5px solid var(--nav-bkgrnd);
+  background-color: var(--main-bkground);
+  margin-bottom: 75px;
+}

@@ -1,0 +1,50 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: calc(100% - 2em);
+  min-width: 40em;
+  height: 4em;
+  background-color: var(--header-bkground);
+  padding: 0.7em 1.5em;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 1;
+}
+
+header ul {
+  display: flex;
+  list-style: none;
+}
+
+header .burger {
+  display: none;
+}
+
+.header-nav-btns li {
+  margin-right: 1em;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.header-nav-btns {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+header a button {
+  letter-spacing: .15em;
+  font-size: 0.8em;
+  padding: .3em .8em;
+  border-radius: .5em;
+  outline: none;
+  width: min-content;
+  color: var(--text-color);
+  font-weight: 600;
+  background-color: var(--btn-bkground);
+  cursor: pointer;
+}

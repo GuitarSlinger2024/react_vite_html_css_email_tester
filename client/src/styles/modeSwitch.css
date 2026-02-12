@@ -1,0 +1,48 @@
+.switch {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 4em;
+  height: 2em;
+  border-radius: 1.1em;
+  background: whitesmoke;
+  border: 0.01em solid black;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.flicker {
+  position: absolute;
+  align-self: center;
+  width: 1.7em;
+  height: 1.7em;
+  border-radius: 1.1em;
+  bottom: 0.1em;
+  left: .15em;
+  box-shadow: 0 0 0.2em var(--flicker-color);
+  transition: transform 0.3s, background-color .6s;
+  background-color: var(--flicker-color);
+}
+
+.dark .flicker {
+  background-color: var(--flicker-color);
+  transform: translateX(1.9em);
+}
+
+#sun {
+  position: absolute;
+  width: 1.6em;
+  height: 1.6em;
+  top: .1em;
+  left: .1em;
+}
+
+.moon {
+  position: absolute;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  top: .05em;
+  right: .7em; 
+  box-shadow: .25em .25em 0 0 rgb(255, 248, 40);
+}

@@ -1,0 +1,100 @@
+*,
+*>* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  color-scheme: light dark;
+  /* background-color: #242424; */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  --text-color: black;
+  --nav-bkgrnd: #aaa;
+  --header-bkground: #aaa;
+  --body-bkground: white;
+  --main-bkground: rgb(220, 220, 220);
+  --border-color: #aaa;
+  --datalist-hover-bkgrnd: white;
+  --center-of-border: #bbb; 
+  --dropdown-bkgrnd: whitesmoke;
+  --select-back: rgb(22, 167, 224);
+  --button-disabled: rgba(0, 0, 0, .2);
+  --button-hover: hsl(0, 0%, 90%);
+  --response-border: rgba(0, 0, 0, .4);
+
+  --flicker-color: rgb(75, 204, 255);
+  
+  --input-bkground: white;
+  --btn-bkground: hsl(0, 0%, 90%);
+  
+  --green-template-label: rgb(0, 148, 0);
+  --gold-back-label: hsl(41, 100%, 40%);
+  --blue-directory-label: blue;
+  --instruction-highlight: saddlebrown;
+
+  
+  
+  scrollbar-color: var(--input-bkground) rgb(210, 210, 210) !important;
+  
+  --error-background: hsla(0, 100%, 50%, .2);
+  --error-color: red;
+  
+  --shownbtns-width: 800px;
+  
+  --background-color: var(--btn-bkground);
+  
+  /* 
+  --body-dark-bkground is used for light/dark side color settings
+  This is the same weather in light or dark mode
+  */
+  --body-dark-bkground: #2e3440;
+}
+
+.dark {
+  --text-color: white;
+  --nav-bkgrnd: black;
+  --header-bkground: #050505;
+  --body-bkground: #2e3440;
+  --main-bkground: #2e3440;
+  --border-color: #777;
+  --datalist-hover-bkgrnd: black;
+  --center-of-border: #777; 
+  --dropdown-bkgrnd: #3b4252;
+  --select-back: lightblue;
+  --button-disabled: rgba(255, 255, 255, .2);
+  --button-hover: hsl(220, 17%, 27%);
+  --response-border: rgba(255, 255, 255, .2);
+  
+  --flicker-color: rgb(39, 38, 38);
+  
+  --input-bkground: #3b4252;
+  --btn-bkground: #242933;
+  
+  --green-template-label: lightgreen;
+  --gold-back-label: yellow;
+  --blue-directory-label: lightblue;
+  --instruction-highlight: hsl(60, 97%, 87%);
+
+  scrollbar-color: rgb(210, 210, 210) rgb(46, 54, 69) !important;
+
+  --background-color: #20242c;
+
+
+
+  /*
+        This color was an accident, but I like it
+               --main-bkground: #2e2e2e;
+   */
+}
+
+

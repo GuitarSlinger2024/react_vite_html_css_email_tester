@@ -1,0 +1,186 @@
+.form-container {
+  position: relative;
+  height: fit-content;
+}
+
+
+label {
+  display: block;
+  padding-bottom: 0.3em;
+}
+
+.input {
+  width: 100%;
+  outline: none;
+  height: 2.3em;
+  background-color: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 1.1em;
+  letter-spacing: 0.05em;
+  padding: 0.3em 0.6em;
+  background-color: var(--input-bkground);
+  border: 0.01em solid var(--text-color);
+  outline: none;
+  border-color: var(--border-color);
+  border-radius: 0.3em;
+}
+
+.form-container:focus-within {
+  z-index: 10;
+}
+
+.show .datalist-container {
+  position: absolute;
+  height: var(--datalist-height);
+  transition: .7s linear;
+  scrollbar-width: none;
+  z-index: 1000;
+}
+  
+.datalist {
+  padding: .65em .45em;
+  position: relative;
+  display: block;
+  transform: translateY(-100%);
+  transition: transform 0s linear;
+  border: .11em solid var(--text-color);
+  border-top: none;
+  border-radius: 0 0 .47em .47em;
+  background-color: var(--background-color);
+  pointer-events: all;
+  z-index: 100000;
+}
+
+.show .datalist {
+  display: block;
+  transform: translateY(0);
+}
+
+
+.datalist-container {
+  --datalist-maxHeight: 17.5em;
+  --datalist-height: var(--datalist-maxHeight); 
+
+  
+  width: 100%;
+  height: 0;
+  max-height: var(--datalist-height);
+  overflow: hidden;
+  border-radius: 0 0 .47em .47em;
+  pointer-events: none;
+  z-index: -10;
+  transition: 0s linear;
+}
+
+.datalist .option,
+.input .option {
+  display: flex;
+  justify-content: space-between;
+  padding: .2em;
+  margin-bottom: .4em;
+  cursor: pointer;
+  width: 100%;
+}
+
+.datalist .option:hover {
+  background-color: var(--input-bkground);
+}
+
+.input .option {
+  pointer-events: none;  
+}
+
+.datalist .emailOpt {
+  display: flex;
+  width: calc(100% - 2.5em);
+}
+
+.input .emailOpt {
+  display: flex;
+  width: 100%;
+}
+
+.datalist p,
+.input p {
+  white-space: nowrap;
+}
+
+.datalist .emailName,
+.input .emailName {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+
+/* .dark .datalist .emailName,
+.dark .input .emailName {
+  font-weight: 400;
+} */
+
+.datalist .emailDomain,
+.input .emailDomain {
+  width: fit-content;
+  flex-shrink: 0;
+  color: #444;
+}
+
+.dark .datalist .emailDomain,
+.dark .input .emailDomain {
+  color: #bbb;
+}
+
+.datalist .trashCan {
+  width: fit-content;
+  flex-shrink: 0;
+}
+
+.datalist .trashCan img {
+  height: 1rem;
+  filter:grayscale(.5);
+}
+
+.datalist .trashCan img:hover {
+  filter:grayscale(0);
+}
+
+.input-container .option:hover {
+  background-color: var(--input-bkground);
+}
+
+[contenteditable=true]:empty:before{
+  content: attr('Ender or Choose an email address');
+  pointer-events: none;
+  display: block;
+}
+
+.empty {
+  cursor: not-allowed;
+}
+
+
+@keyframes waitingBkgrnd {
+  0% {
+    /* background: linear-gradient(110deg, transparent 0%, hsla(0, 0%, 50%, .5), hsla(0, 0%, 100%, 1) 2%, hsla(0, 0%, 50%, .5) 5%, transparent); */
+    /* opacity: 0; */
+    left: -100%;
+  }
+
+  25% {
+    /* opacity: .3; */
+  }
+
+  50% {
+    /* opacity: .5; */
+  }
+
+  75% {
+    /* opacity: .4; */
+  }
+
+  100% {
+    /* opacity: .3; */
+    left: 100%;
+  }
+}

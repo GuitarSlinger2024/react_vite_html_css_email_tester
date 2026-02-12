@@ -1,0 +1,68 @@
+.instructions,
+.settings {
+  position: absolute;
+  /* height: calc(100vh - 140px); */
+  height: 93%;
+  background-color: var(--input-bkground);
+}
+
+.instructions {
+  overflow-y: scroll;
+  height: 98%;
+}
+
+.instruction-inner {
+  max-width: 840px;
+  margin: auto;
+}
+
+section.instructions {
+  background-color: blue;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.instructions.active,
+.instructions.active .instructions,
+.settings.active {
+  display: block;
+}
+
+.instructions h2,
+.settings h2 {
+  text-align: center;
+  text-decoration: underline;
+  width: 100%;
+}
+
+
+.instructions .instructions {
+  box-sizing: border-box;
+  width: 100%;
+  height: min-content;
+  font-size: 16px;
+  overflow: hidden;
+  padding: 20px 0;
+  /* background-color: white; */
+}
+
+
+.instructions p,
+.settings p {
+  margin: 15px;
+  letter-spacing: 1px;
+}
+
+.instructions ul {
+  width: 85%;
+  margin-left: 5%;
+  list-style: disc;
+}
+
+.instructions li {
+  margin: 10px 0;
+}
+
+.instructions a {
+  color: var(--blue-directory-label);
+}

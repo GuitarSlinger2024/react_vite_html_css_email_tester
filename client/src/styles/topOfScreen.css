@@ -1,0 +1,35 @@
+/***********        .userName        ***********/
+
+.top_of_screen {
+  position: relative;
+  height: fit-content;
+  width: 100%;
+  min-width: 40em;
+  margin-bottom: 2em;
+}
+
+.userName {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+
+/***********     Darkmode button     ***********/
+
+.main-title {
+  min-width: 40rem;
+  text-align: center;
+  line-height: .9;
+  padding: 5rem 5em .1rem;
+}
+
+.main-title span {
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+}
+
+.main-title span:last-of-type {
+  font-size: .6em;
+}
+
