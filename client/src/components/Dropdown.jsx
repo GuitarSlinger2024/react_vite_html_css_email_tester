@@ -16,13 +16,33 @@ function Dropdown({
   const [value, setValue] = useState(currentOpt)
   const myRef = useRef()
 
-  function validateEmail() {
+  function validateNewInput() {
     //  Used when enter is pressed instead of clicking an option
-    setCurrentOpt(myRef.current.value)
-    setValue(createEmailValue(myRef.current.value))
+    const check = validateEmail(myRef.current.textContent)
+    if (!check) {
+      return
+    }
+    myRef.current.blur()
+    console.log('Creating New Email')
+    console.log(myRef.current.textContent)
+    setCurrentOpt(myRef.current.textContent)
+    setValue(createEmailValue(myRef.current.textContent))
+  }
+
+  // Source - https://stackoverflow.com/a/46181
+  // Posted by John Rutherford, modified by community. See post 'Timeline' for change history
+  // Retrieved 2026-02-12, License - CC BY-SA 4.0
+
+  const validateEmail = email => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      )
   }
 
   function createEmailValue(opt) {
+    console.log(opt)
     const strIndex = opt.indexOf('@')
     const name = opt.slice(0, strIndex)
     const domain = opt.slice(strIndex)
@@ -42,9 +62,9 @@ function Dropdown({
   function keyDown(e) {
     if (e.key === 'Enter') {
       e.preventDefault()
-      myRef.current.blur()
 
-      validateEmail()
+
+      validateNewInput()
     }
   }
 

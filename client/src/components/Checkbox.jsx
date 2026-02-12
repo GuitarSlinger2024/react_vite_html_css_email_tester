@@ -66,7 +66,7 @@ const styles = Stylesheet.create({
   img: {
     position: 'absolute',
     inlineSize: '170%',
-    top: '-.4em',
+    insetBlockStart: '-.4em',
     left: '-.25em',
   },
   label: {
