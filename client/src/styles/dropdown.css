@@ -24,6 +24,8 @@ label {
   outline: none;
   border-color: var(--border-color);
   border-radius: 0.3em;
+  color: var(--green-template-label);
+  font-style: italic;
 }
 
 .input:focus {
@@ -72,11 +74,13 @@ label {
   background-color: var(--background-color);
   pointer-events: all;
   z-index: 100000;
+  opacity: 0;
 }
 
 .show .datalist {
   display: block;
   transform: translateY(0);
+  opacity: 1;
 }
 
 .datalist-container {
@@ -189,7 +193,7 @@ label {
 
 .template .input {
   caret-color: transparent;
-  color: var(--text-color)
+  color: var(--green-template-label)
 }
 
 .empty {
@@ -260,9 +264,9 @@ label {
   opacity: .5;
 }
 
-/* .input span.template {
+.input span.template {
   color: var(--green-template-label)
-} */
+}
 
 @keyframes waitingBkgrnd {
   0% {
