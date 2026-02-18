@@ -189,7 +189,7 @@ label {
 
 .template .input {
   caret-color: transparent;
-  color: var(--green-template-label)
+  color: var(--text-color)
 }
 
 .empty {
@@ -260,9 +260,9 @@ label {
   opacity: .5;
 }
 
-.input span.template {
+/* .input span.template {
   color: var(--green-template-label)
-}
+} */
 
 @keyframes waitingBkgrnd {
   0% {
