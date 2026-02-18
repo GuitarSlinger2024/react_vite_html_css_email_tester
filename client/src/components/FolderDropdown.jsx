@@ -123,6 +123,7 @@ function FolderDropdown({
             )}
           </label>
           <div
+            spellCheck='false'
             ref={myRef}
             className="input"
             value={value}
