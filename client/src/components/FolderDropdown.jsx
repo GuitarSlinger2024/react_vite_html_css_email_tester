@@ -5,7 +5,6 @@ import { json } from 'body-parser'
 
 function FolderDropdown({
   label,
-  placeHolder,
   options,
   setOptions,
   currentOpt,
@@ -16,9 +15,11 @@ function FolderDropdown({
   updateDb,
   emptyMsg,
   className,
+  areFolders, setAreFolders,
+  areTemplates, setAreTemplates
 }) {
   const [showList, setShowList] = useState(false)
-  const [value, setValue] = useState(currentOpt)
+  const [value, setValue] = useState('')
   const myRef = useRef()
 
   useEffect(() => {
@@ -49,30 +50,49 @@ function FolderDropdown({
   }
 
   async function templateOptionClicked(e) {
+    // let target = e.target.classList.includes('option') ? e.target.querySelector('.templateOpt') : e.target
     let target = e.target
 
     console.log('Template option clicked')
+    console.log('template? ' + target.classList.contains('template'))
+    setValue('')
+    const iAmTemplate = target.classList.contains('template')
+
     // setShowList(false)
     // setValue(target.textContent)
     let newPath = JSON.parse(JSON.stringify(folderPath))
     //  Add to the folderPath
 
-    if (!target.classList.contains('back'))
-      newPath = [...folderPath, e.target.textContent]
-    else newPath.splice(-1)
+    if (target.classList.contains('back')) newPath.splice(-1)
+    // else if (target.classList.contains(''))
+    else if (!iAmTemplate) newPath = [...folderPath, e.target.textContent]
     setFolderPath(newPath)
 
-    const content = getNewFolderContent(newPath)
+    let content = getNewFolderContent(newPath)
     console.log('%c content', 'color: blue;font-weight: 900', content)
+
+    if (iAmTemplate) {
+      setValue(target.textContent)
+      // content = []
+    }
+
+    ///  It's a folder - either directory or template
     setOptions(content)
 
     const keys = Object.keys(content)
     const currentFiles = {}
+    let templates = 0
+    let directories = 0
     keys.forEach(key => {
       const type = content[key][key] ? 'template' : 'directory'
+      if (type === 'template') templates++
+      if (type === 'directory') directories++
       currentFiles[key] = type
     })
-    console.log('current', currentFiles)
+    console.log('current 1:', currentFiles)
+
+    setAreFolders(directories > 0)
+    setAreTemplates(templates > 0)
     setOptions(currentFiles)
   }
 
@@ -96,9 +116,11 @@ function FolderDropdown({
         <div className="input-container">
           <label>
             {label}
-            {folderPath.length > 0
-              ? folderPath.map((el, i) => <span key={i}> / {el}</span>)
-              : <span> / root</span>}
+            {folderPath.length > 0 ? (
+              folderPath.map((el, i) => <span key={i}> / {el}</span>)
+            ) : (
+              <span> / root</span>
+            )}
           </label>
           <div
             ref={myRef}
@@ -106,7 +128,6 @@ function FolderDropdown({
             value={value}
             onChange={handleChange}
             contenteditable={'true'}
-            placeholder={placeHolder}
             onFocus={() => {
               document
                 .querySelectorAll('.show')
@@ -127,15 +148,28 @@ function FolderDropdown({
             onBlur={inputBlurred}
           >
             {value}
-            {/* {(currentOpt && titleCase(currentOpt.replace('_', ' '))) || (
-            <span className="placeHolder">{placeHolder}</span>
-          )} */}
           </div>
+          {!value && (
+            <div className="placeHolder">
+              {`Choose `}
+              {areTemplates && (
+                <>
+                  a <span className="template">template </span>
+                </>
+              )}
+              {<span>{Boolean(areTemplates && areFolders) && ` or `}</span>}
+              {areFolders && (
+                <>
+                  a <span className="directory">folder </span>
+                </>
+              )}
+            </div>
+          )}
         </div>
 
         <div className={`datalist-container`}>
           <datalist className="datalist">
-            {Object.entries(options).length > 0 && (
+            {Boolean(Object.entries(options).length > 0 || folderPath.length > 0) && (
               <>
                 {Object.entries(options).map((opt, i) => (
                   <div
@@ -150,13 +184,13 @@ function FolderDropdown({
                     className="option"
                     key={'backBtn'}
                   >
-                    {createTemplateOption(['Back One', 'back'])}
+                    {createTemplateOption(['Back', 'back'])}
                   </div>
                 )}
               </>
             )}
 
-            {Object.entries(options).length === 0 && (
+            {Boolean(Object.entries(options).length === 0 && folderPath.length === 0) && (
               <div
                 style={{
                   textAlign: 'center',

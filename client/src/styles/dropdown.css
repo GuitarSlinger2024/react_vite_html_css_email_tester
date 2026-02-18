@@ -97,10 +97,18 @@ label {
 .input .option {
   display: flex;
   justify-content: space-between;
-  padding: 0.2em;
+  padding: 0.25em;
   margin-bottom: 0.4em;
   cursor: pointer;
   width: 100%;
+}
+
+.datalist .option {
+  padding: 0
+}
+
+.datalist .templateOpt {
+  padding: .2em
 }
 
 .datalist .option:hover {
@@ -179,11 +187,6 @@ label {
   content: 'Enter or Choose an email address';
 }
 
-.template .input:empty:before {
-  content: 'Choose a template';
-  color: var(--placeholder-color)
-}
-
 .template .input {
   caret-color: transparent;
 }
@@ -228,8 +231,32 @@ label {
   color: green
 }
 
-.input-container label span {
-  color: red
+.placeHolder {
+  position: absolute;
+  left: .6em;
+  bottom: .6em;
+  color: var(--placeholder-color);
+  pointer-events: none;
+}
+
+.placeHolder .template {
+  color: green;
+  opacity: .5;
+}
+
+.dark .placeHolder .template {
+  color: lightgreen;
+  opacity: .5;
+}
+
+.placeHolder .directory {
+  color: blue;
+  opacity: .5;
+}
+
+.dark .placeHolder .directory {
+  color: lightblue;
+  opacity: .5;
 }
 
 @keyframes waitingBkgrnd {

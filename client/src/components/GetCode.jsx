@@ -16,6 +16,9 @@ function GetCode({ mode }) {
   const [removeComments, setRemoveComments] = useState('only') //  only   all   none   select
   const [removeBlanks, setRemoveBlanks] = useState('remove') //  remove   reduce   leave
 
+  const [areFolders, setAreFolders] = useState(false)
+  const [areTemplates, setAreTemplates] = useState(false)
+
   useEffect(async () => {
     //  First get the list of email addresses on file (done)
     try {
@@ -61,13 +64,19 @@ function GetCode({ mode }) {
     console.log('fileTree', fileTree)
     console.log({ keys })
 
+    let templates = 0
+    let folders = 0
     const currentFiles = {}
     keys.forEach(key => {
       const type = fileTree[key][key] ? 'template' : 'directory'
       currentFiles[key] = type
+      if (type === 'template') templates++
+      if (type === 'directory') folders++
     })
     console.log('current', currentFiles)
     setFolderOptions(currentFiles)
+    setAreFolders(folders > 0)
+    setAreTemplates(templates > 0)
   }, [fileTree])
 
   useEffect(() => {
@@ -118,7 +127,6 @@ function GetCode({ mode }) {
 
         <FolderDropdown
           label={'Folder:'}
-          placeHolder={'Choose a folder or a template'}
           currentOpt={currentFolder}
           folderPath={folderPath}
           fileTree={fileTree}
@@ -128,8 +136,12 @@ function GetCode({ mode }) {
           options={folderOptions}
           setOptions={setFolderOptions}
           setOption={setCurrentFolder}
-          emptyMsg={'There no folders or templates on file'}
+          emptyMsg={'There are no folders or templates on file'}
           className={'template'}
+          areFolders={areFolders}
+          setAreFolders={setAreFolders}
+          areTemplates={areTemplates}
+          setAreTemplates={setAreTemplates}
         />
 
         <div className="remove-comments-container">

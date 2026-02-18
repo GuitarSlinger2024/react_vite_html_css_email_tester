@@ -50,22 +50,6 @@ function EmailDropdown({
     )
   }
 
-  function createTemplateOption(opt) {
-    console.log('%cOPT!!!', 'color: red;font-size:20px', opt)
-    return (
-      <>
-        <p
-          className="templateOpt"
-          onClick={e => {
-            templateOptionClicked(e)
-          }}
-        >
-          {opt[0]}
-        </p>
-      </>
-    )
-  }
-
   function deleteAddress(e) {
     if (e.target.nodeName !== 'IMG') return
     const trashText = e.target.parentElement.parentElement.textContent
@@ -217,8 +201,8 @@ function EmailDropdown({
 
         <div className={`datalist-container`}>
           <datalist className="datalist">
-            {options.length > 0 && label === 'Send To:'
-              ? options.map((opt, i) => (
+            {options.length > 0 &&
+              options.map((opt, i) => (
                   <div
                     className="option"
                     key={i}
@@ -226,14 +210,7 @@ function EmailDropdown({
                     {createEmailOption(opt)}
                   </div>
                 ))
-              : Object.entries(options).map((opt, i) => (
-                  <div
-                    className="option"
-                    key={i}
-                  >
-                    {createTemplateOption(opt)}
-                  </div>
-                ))}
+             }
             {options.length === 0 && (
               <div
                 style={{
