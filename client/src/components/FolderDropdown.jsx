@@ -72,7 +72,7 @@ function FolderDropdown({
     console.log('%c content', 'color: blue;font-weight: 900', content)
 
     if (iAmTemplate) {
-      setValue(target.textContent)
+      setValue(<span className='template'>target.textContent</span>)
       // content = []
     }
 
