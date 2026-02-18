@@ -206,6 +206,32 @@ label {
   display: block;
 }
 
+.templateOpt {
+  font-weight: 500;
+}
+
+.dark .input-container label span,
+.dark .templateOpt.directory {
+  color: lightblue
+}
+
+.dark .templateOpt.template {
+  color: lightgreen
+}
+
+.input-container label span,
+.templateOpt.directory {
+  color: blue
+}
+
+.templateOpt.template {
+  color: green
+}
+
+.input-container label span {
+  color: red
+}
+
 @keyframes waitingBkgrnd {
   0% {
     /* background: linear-gradient(110deg, transparent 0%, hsla(0, 0%, 50%, .5), hsla(0, 0%, 100%, 1) 2%, hsla(0, 0%, 50%, .5) 5%, transparent); */

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import trash from '../_img/trash.png'
 import '../styles/dropdown.css'
+import { json } from 'body-parser'
 
 function FolderDropdown({
   label,
@@ -27,6 +28,7 @@ function FolderDropdown({
   //                  Start here for emails !!!!
 
   function createTemplateOption(opt) {
+    console.log('%c - - - - - - -', 'font-size:24px', { opt })
     return (
       <>
         <div
@@ -41,8 +43,6 @@ function FolderDropdown({
     )
   }
 
-
-
   function handleChange(e) {
     console.log(e.target)
     setValue(e.target.value)
@@ -50,18 +50,30 @@ function FolderDropdown({
 
   async function templateOptionClicked(e) {
     let target = e.target
-    if (target.className === 'empty') return
+
     console.log('Template option clicked')
     // setShowList(false)
     // setValue(target.textContent)
-    
-    
+    let newPath = JSON.parse(JSON.stringify(folderPath))
     //  Add to the folderPath
-    const newPath = [...folderPath, e.target.textContent]
+
+    if (!target.classList.contains('back'))
+      newPath = [...folderPath, e.target.textContent]
+    else newPath.splice(-1)
     setFolderPath(newPath)
+
     const content = getNewFolderContent(newPath)
     console.log('%c content', 'color: blue;font-weight: 900', content)
     setOptions(content)
+
+    const keys = Object.keys(content)
+    const currentFiles = {}
+    keys.forEach(key => {
+      const type = content[key][key] ? 'template' : 'directory'
+      currentFiles[key] = type
+    })
+    console.log('current', currentFiles)
+    setOptions(currentFiles)
   }
 
   function getNewFolderContent(pathArray) {
@@ -82,7 +94,12 @@ function FolderDropdown({
     <div className={`form-container ${showList ? ' show' : ''}`}>
       <div className={`dropdown ${className}`}>
         <div className="input-container">
-          <label>{label}</label>
+          <label>
+            {label}
+            {folderPath.length > 0
+              ? folderPath.map((el, i) => <span key={i}> / {el}</span>)
+              : <span> / root</span>}
+          </label>
           <div
             ref={myRef}
             className="input"
@@ -118,7 +135,9 @@ function FolderDropdown({
 
         <div className={`datalist-container`}>
           <datalist className="datalist">
-            {Object.entries(options).length > 0 && Object.entries(options).map((opt, i) => (
+            {Object.entries(options).length > 0 && (
+              <>
+                {Object.entries(options).map((opt, i) => (
                   <div
                     className="option"
                     key={i}
@@ -126,13 +145,24 @@ function FolderDropdown({
                     {createTemplateOption(opt)}
                   </div>
                 ))}
+                {folderPath.length > 0 && (
+                  <div
+                    className="option"
+                    key={'backBtn'}
+                  >
+                    {createTemplateOption(['Back One', 'back'])}
+                  </div>
+                )}
+              </>
+            )}
+
             {Object.entries(options).length === 0 && (
               <div
                 style={{
                   textAlign: 'center',
                   inlineSize: '100%',
                 }}
-                className="empty"
+                className="back"
                 onClick={e => {
                   optionClicked(e)
                 }}
