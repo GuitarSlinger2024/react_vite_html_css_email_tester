@@ -1,17 +1,23 @@
 import { useEffect, useState } from 'react'
 import '../styles/getCode.css'
-import Dropdown from './Dropdown'
+import EmailDropdown from './EmailDropdown'
+import FolderDropdown from './FolderDropdown'
 import Checkbox from './Checkbox'
 
 function GetCode({ mode }) {
+  //  Email Addresses
   const [currentEmail, setCurrentEmail] = useState('')
   const [emailOptions, setEmailOptions] = useState([])
-  const [currentFolder, setCurrentFolder] = useState('')
+  //  File Options
+  const [fileTree, setFileTree] = useState({})
+  const [currentFolder, setCurrentFolder] = useState([])
+  const [folderPath, setFolderPath] = useState([])
   const [folderOptions, setFolderOptions] = useState([])
-  const [removeComments, setRemoveComments] = useState('yes') //  yes   no   only   select
+  const [removeComments, setRemoveComments] = useState('only') //  only   all   none   select
   const [removeBlanks, setRemoveBlanks] = useState('remove') //  remove   reduce   leave
-  
+
   useEffect(async () => {
+    //  First get the list of email addresses on file (done)
     try {
       fetch('/getAddresses', {
         method: 'post',
@@ -27,11 +33,45 @@ function GetCode({ mode }) {
     } catch (error) {
       console.log(error.message)
     }
+
+    //  Then get the ARRAY of templates as a 'folder tree'  (in progress)
+    try {
+      fetch('/getTemplates', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then(data => data.json())
+        .then(data => {
+          console.log('root', { data })
+          setFileTree(data)
+        })
+    } catch (error) {
+      console.log(error.message)
+    }
   }, [])
 
   useEffect(() => {
+    const keys = Object.keys(fileTree)
+    if (keys.length === 0) {
+      console.log('empty fileTree:', fileTree)
+      return
+    }
+    console.log('fileTree', fileTree)
+    console.log({ keys })
+
+    const currentFiles = {}
+    keys.forEach(key => {
+      const type = fileTree[key][key] ? 'template' : 'directory'
+      currentFiles[key] = type
+    })
+    console.log('current', currentFiles)
+    setFolderOptions(currentFiles)
+  }, [fileTree])
+
+  useEffect(() => {
     if (!currentEmail) return
-    console.log(currentEmail)
     const opts = emailOptions.filter(x => x)
     if (currentEmail) opts.push(currentEmail)
     if (!emailOptions.includes(currentEmail)) {
@@ -39,6 +79,7 @@ function GetCode({ mode }) {
       updateEmails(opts)
     }
   }, [currentEmail])
+
 
   //  email options can also be updated from Dropdown.jsx
 
@@ -63,54 +104,57 @@ function GetCode({ mode }) {
   return (
     <section className="section getCode active">
       <form id="form1">
-        <Dropdown
+        <EmailDropdown
           label={'Send To:'}
-          placeHolder={'Ender or Choose an email address'}
+          placeHolder={'Enter or Choose an email address'}
           options={emailOptions}
           setOptions={setEmailOptions}
           currentOpt={currentEmail}
           setCurrentOpt={setCurrentEmail}
           updateDb={updateEmails}
           emptyMsg={'No email addresses have been entered'}
+          className={'email'}
         />
 
-        <Dropdown
+        <FolderDropdown
           label={'Folder:'}
           placeHolder={'Choose a folder or a template'}
           currentOpt={currentFolder}
+          folderPath={folderPath}
+          fileTree={fileTree}
+          setFolderPath={setFolderPath}
+          setFolderOptions={setFolderOptions}
           class={'selectPlaceholder'}
           options={folderOptions}
+          setOptions={setFolderOptions}
           setOption={setCurrentFolder}
-          emptyMsg={'There no email templates on file'}
+          emptyMsg={'There no folders or templates on file'}
+          className={'template'}
         />
-
-        {/* 
-              className="ellipsContainer" 
-        */}
 
         <div className="remove-comments-container">
           <p className="radioBtnTitle">Remove HTML & CSS Comments</p>
 
           <div className="radioBtns">
             <Checkbox
-              label={'Yes'}
-              mode={mode}
-              checked={removeComments === 'yes'}
-              setChecked={setRemoveComments.bind(null, 'yes')}
-            />
-
-            <Checkbox
-              label={'No'}
-              mode={mode}
-              checked={removeComments === 'no'}
-              setChecked={setRemoveComments.bind(null, 'no')}
-            />
-
-            <Checkbox
               label="Only *"
               mode={mode}
               checked={removeComments === 'only'}
               setChecked={setRemoveComments.bind(null, 'only')}
+            />
+
+            <Checkbox
+              label={'All'}
+              mode={mode}
+              checked={removeComments === 'all'}
+              setChecked={setRemoveComments.bind(null, 'all')}
+            />
+
+            <Checkbox
+              label={'None'}
+              mode={mode}
+              checked={removeComments === 'none'}
+              setChecked={setRemoveComments.bind(null, 'none')}
             />
 
             <Checkbox

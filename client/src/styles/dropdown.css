@@ -6,6 +6,7 @@
 label {
   display: block;
   padding-bottom: 0.3em;
+  font-weight: 500;
 }
 
 .input {
@@ -168,14 +169,41 @@ label {
   background-color: var(--input-bkground);
 }
 
-[contenteditable='true']:empty:before {
-  content: attr('Ender or Choose an email address');
+.input:not(:focus):empty:before {
   pointer-events: none;
   display: block;
+  color: var(--placeholder-color)  
+}
+
+.email .input:not(:focus):empty:before {
+  content: 'Enter or Choose an email address';
+}
+
+.template .input:empty:before {
+  content: 'Choose a template';
+  color: var(--placeholder-color)
+}
+
+.template .input {
+  caret-color: transparent;
 }
 
 .empty {
   cursor: not-allowed;
+}
+
+.errorMsg {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  color: rgb(255, 100, 100);
+  display: none;
+  font-weight: 500;
+}
+
+.errorMsg.showErrorMsg {
+  display: block;
 }
 
 @keyframes waitingBkgrnd {

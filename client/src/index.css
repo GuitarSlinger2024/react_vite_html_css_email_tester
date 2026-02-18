@@ -42,7 +42,7 @@ body {
   --blue-directory-label: blue;
   --instruction-highlight: saddlebrown;
 
-  
+  --placeholder-color: #aaa;
   
   scrollbar-color: var(--input-bkground) rgb(210, 210, 210) !important;
   
@@ -89,7 +89,7 @@ body {
 
   --background-color: #20242c;
 
-
+  --placeholder-color: #888;
 
   /*
         This color was an accident, but I like it
