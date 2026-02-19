@@ -5,7 +5,7 @@
   block-size: calc(100% - 0px);
   block-size: 100%;
   box-sizing: content-box;
-  letter-spacing: 1px;
+  letter-spacing: .1em;
 }
 
 .getCode #form1 {
@@ -18,8 +18,7 @@
   inset-inline-start: 50%;
   transform: translate(-50%);
   block-size: 92.5%;
-  min-inline-size: 520px;
-  /* padding-block-start: 10px; */
+  min-inline-size: 32.5em;
   padding: 1em 1.4em;
   box-sizing: content-box;
 }
@@ -27,30 +26,30 @@
 #template-container_2 {
   position: relative;
   /* margin under File Name input */
-  margin: 17px 0 20px;
+  margin: 1.0625em 0 1.25em;
 }
 
 label {
-  font-size: 16px;
+  font-size: 1em;
 }
 
 #emailInput,
 #templateInput {
   inline-size: 100%;
   outline: none;
-  block-size: 40px;
+  block-size: 2.5em;
   background-color: transparent;
   color: transparent;
   cursor: pointer;
-  font-size: 18px;
-  letter-spacing: 1px;
-  padding: 10px;
+  font-size: 1.125em;
+  letter-spacing: .0625em;
+  padding: .625em;
 
   background-color: var(--input-bkground);
-  border: .5px solid var(--text-color);
+  border: .0625em solid var(--text-color);
   outline: none;
   border-color: var(--border-color);
-  border-radius: 5px;
+  border-radius: .3125em;
 }
 
 
@@ -80,13 +79,13 @@ label {
 }
 
 .getCode button {
-  width: 110px;
-  padding: 9px 0px;
-  margin: 0 7px;
+  width: 6.875;
+  padding: .5625em 0;
+  margin: 0 .4375em;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1em;
   white-space: nowrap;
-  border-radius: 8px;
+  border-radius: .5em;
   cursor: pointer;
 }
 
@@ -108,11 +107,11 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  border: 1px solid var(--response-border);
-  height: 100px;
+  border: .0625em solid var(--response-border);
+  height: 6.25em;
   width: 100%;
   flex-shrink: 0;
-  margin-top: 20px;
+  margin-top: 1.25em;
   text-align: center;
   background-color: var(--input-bkground);
 }

@@ -49,8 +49,6 @@ body {
   --error-background: hsla(0, 100%, 50%, .2);
   --error-color: red;
   
-  --shownbtns-width: 800px;
-  
   --background-color: var(--btn-bkground);
   
   /* 

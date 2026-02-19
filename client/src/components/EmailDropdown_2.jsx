@@ -201,7 +201,7 @@ function EmailDropdown({
               checked={selectOpts}
               setChecked={setSelectOpts.bind(null, !selectOpts)}
               className="select-addresses"
-              onclick={setNumOfChecksDisplay}
+              onclick={() => {setNumOfChecksDisplay()}}
             />
           </div>
 
@@ -240,7 +240,7 @@ function EmailDropdown({
           {selectOpts && (
             <div className="selectOptionsMsg">
               <span className="numOfChecks">{numOfChecks}</span> addresses
-              checked
+              selected
             </div>
           )}
         </div>

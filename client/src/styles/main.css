@@ -17,3 +17,9 @@ main {
   background-color: var(--main-bkground);
   margin-bottom: 75px;
 }
+
+@media screen and (max-width: 800px) {
+  body {
+    font-size: 2vw;
+  }
+}

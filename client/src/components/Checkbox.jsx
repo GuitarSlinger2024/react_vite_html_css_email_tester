@@ -42,6 +42,11 @@ const Checkbox = ({
 
     //  Set new checked value
     setChecked()
+
+    const checkbox = document.querySelector(
+      '.option.checkAll div.checkbox'
+    )
+    if (checkbox) checkbox.click()
   }
 
   
@@ -58,7 +63,7 @@ const styles = Stylesheet.create({
     position: 'relative',
     boxSizing: 'border-box',
     flexShrink: '0',
-    border: `1px solid ${mode === 'light' ? 'black' : 'white'}`,
+    border: `.0625em solid ${mode === 'light' ? 'black' : 'white'}`,
     marginInlineEnd: '.7em',
     blockSize: '1em',
     inlineSize: '1em',

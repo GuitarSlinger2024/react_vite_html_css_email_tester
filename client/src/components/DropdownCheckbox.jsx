@@ -44,7 +44,7 @@ const styles = Stylesheet.create({
     position: 'relative',
     boxSizing: 'border-box',
     flexShrink: '0',
-    border: `1px solid ${mode === 'light' ? 'black' : 'white'}`,
+    border: `.0625em solid ${mode === 'light' ? 'black' : 'white'}`,
     marginInlineEnd: '.7em',
     blockSize: '1em',
     inlineSize: '1em',

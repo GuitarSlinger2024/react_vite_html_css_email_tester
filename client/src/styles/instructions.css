@@ -50,7 +50,7 @@ section.instructions {
 .instructions p,
 .settings p {
   margin: 15px;
-  letter-spacing: 1px;
+  letter-spacing: .0625em;
 }
 
 .instructions ul {

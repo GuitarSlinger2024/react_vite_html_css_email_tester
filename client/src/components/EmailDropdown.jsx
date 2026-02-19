@@ -42,12 +42,6 @@ function EmailDropdown({
             mode={mode}
             checked={checkAll}
             setChecked={setCheckAll}
-            // checked={addToMailingList}
-            // setChecked={setAddToMailingList.bind(null, !addToMailingList)}
-            // onclick={e => {
-            //   console.log('CHECKBOX')
-            //   checkboxClicked(e)
-            // }}
           />
         )}
         <p className="emailOpt">Check All</p>
