@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import '../styles/getCode.css'
-import EmailDropdown from './EmailDropdown'
+import EmailDropdown from './EmailDropdown_2'
 import FolderDropdown from './FolderDropdown'
 import Checkbox from './Checkbox'
 
@@ -8,6 +8,7 @@ function GetCode({ mode }) {
   //  Email Addresses
   const [currentEmail, setCurrentEmail] = useState('')
   const [emailOptions, setEmailOptions] = useState([])
+  const [selectOpts, setSelectOpts] = useState(false)
   //  File Options
   const [fileTree, setFileTree] = useState({})
   const [currentFolder, setCurrentFolder] = useState([])
@@ -123,6 +124,9 @@ function GetCode({ mode }) {
           updateDb={updateEmails}
           emptyMsg={'No email addresses have been entered'}
           className={'email'}
+          mode={mode}
+          selectOpts={selectOpts}
+          setSelectOpts={setSelectOpts}
         />
 
         <FolderDropdown

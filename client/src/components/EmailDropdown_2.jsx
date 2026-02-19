@@ -20,13 +20,55 @@ function EmailDropdown({
   const [showList, setShowList] = useState(false)
   const [value, setValue] = useState(currentOpt)
   const [checkAll, setCheckAll] = useState(false)
+  const [numOfChecks, setNumOfChecks] = useState(0)
   const myRef = useRef()
 
   useEffect(() => {
     console.log('%cRed', 'color: red;font-size:20px', { options })
   }, [options])
 
+  // useEffect(() => {
+  //   if (showList && checkAll) {
+  //     console.log('%c Creating onclick event right now!!!!!!!!!!!!!!!!!')
+  //     // setTimeout(() => {
+  //       document.getElementById('root').onClick = e => {
+  //         e.preventDefault()
+  //         e.stopPropagation()
+  //         console.log(e)
+  //         myRef.current.focus()
+  //       }
+  //     // }, 100)
+  //   } else {
+  //     document.getElementById('root').onClick = null
+  //   }
+  // }, [showList])
 
+  // useEffect(() => {
+  //   document.body.addEventListener('click', closeSidemenu)
+
+  //   return function cleanup() {
+  //     window.removeEventListener('click', closeSidemenu)
+  //   }
+  // }, [])
+  useEffect(() => {
+    if (showList) window.onclick = closeSidemenu
+    else window.onclick = null
+
+    return function cleanup() {
+      window.onclick = null
+    }
+  }, [showList])
+
+  function closeSidemenu(e) {
+    e.preventDefault()
+    e.stopPropagation()
+    console.log('target', e.target)
+    if (!e.target.closest('.dropdown.email')) {
+      setTimeout(() => {
+        setShowList(false)
+      }, 200)
+    }
+  }
 
   //                  Start here for emails !!!!
   function createCheckAllOption(opt) {
@@ -92,6 +134,7 @@ function EmailDropdown({
     }
 
     myRef.current.blur()
+    setShowList(false)
     setCurrentOpt(myRef.current.textContent)
     setValue(createEmailValue(myRef.current.textContent))
   }
@@ -139,6 +182,7 @@ function EmailDropdown({
       if (Boolean(box.getAttribute('checked') === 'true') !== !checkAll)
         box.click()
     })
+    setNumOfChecksDisplay()
   }
 
   function emailOptionClicked(e) {
@@ -152,21 +196,24 @@ function EmailDropdown({
     if (selectOpts) {
       console.log(target.parentElement.querySelector('.checkbox'))
       target.parentElement.querySelector('.checkbox').click()
+      setCheckAll(false)
+      setNumOfChecksDisplay()
     } else {
+      setShowList(false)
       setCurrentOpt(target.textContent)
       setValue(createEmailValue(target.textContent))
     }
   }
 
-  function inputBlurred(e) {
-    // console.log(e.target)
-    console.log(document.activeElement)
-    console.log('show list', showList)
-    if (!checkAll) {
-      setTimeout(() => {
-        setShowList(false)
-      }, 150)
-    }
+  function setNumOfChecksDisplay() {
+    setTimeout(() => {
+      const checkBoxes = document.querySelectorAll(
+        '.email .option:not(.checkAll) div.checkbox[checked="true"]'
+      )
+      console.log(checkBoxes)
+      console.log(checkBoxes.length)
+      setNumOfChecks(checkBoxes.length)
+    }, 200)
   }
 
   return (
@@ -209,13 +256,19 @@ function EmailDropdown({
                 selection.addRange(range)
               }, 0)
             }}
-            onBlur={inputBlurred}
           >
             {value}
             {/* {(currentOpt && titleCase(currentOpt.replace('_', ' '))) || (
             <span className="placeHolder">{placeHolder}</span>
           )} */}
           </div>
+
+          {selectOpts && (
+            <div className="selectOptionsMsg">
+              <span className="numOfChecks">{numOfChecks}</span> addresses
+              checked
+            </div>
+          )}
         </div>
 
         <div className={`datalist-container`}>

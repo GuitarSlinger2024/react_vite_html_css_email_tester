@@ -29,7 +29,6 @@ function FolderDropdown({
   //                  Start here for emails !!!!
 
   function createTemplateOption(opt) {
-    console.log('%c - - - - - - -', 'font-size:24px', { opt })
     return (
       <>
         <div

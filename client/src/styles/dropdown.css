@@ -24,14 +24,17 @@ label {
   outline: none;
   border-color: var(--border-color);
   border-radius: 0.3em;
-  color: var(--green-template-label);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.template .input {
   font-style: italic;
 }
 
 .input:focus {
   display: flex;
   align-items: center;
-  white-space: nowrap;
   overflow-y: hidden;
   overflow-x: scroll;
   padding-bottom: .55rem;
@@ -50,6 +53,20 @@ label {
   scrollbar-width: none;  /* Firefox */
 }
 
+.selectOptionsMsg {
+  position: absolute;
+  z-index: 100;
+  bottom: .1rem;
+  height: 2em;
+  background: var(--input-bkground);
+  width: 99%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  pointer-events: none;
+}
+
 .form-container:focus-within {
   z-index: 10;
 }
@@ -63,9 +80,9 @@ label {
 }
 
 .datalist {
+  display: block;
   padding: 0.65em 0.45em;
   position: relative;
-  display: block;
   transform: translateY(-100%);
   transition: transform 0s linear;
   border: 0.11em solid var(--text-color);
@@ -78,7 +95,6 @@ label {
 }
 
 .show .datalist {
-  display: block;
   transform: translateY(0);
   opacity: 1;
 }
@@ -107,9 +123,19 @@ label {
   width: 100%;
 }
 
+.option.checkAll {
+  border-bottom: .05em solid var(--placeholder-color);
+  padding-bottom: .5em !important;
+}
+
+.option.checkAll > div {
+  display: flex;
+}
+
 .datalist .option {
   padding: 0
 }
+
 
 .datalist .templateOpt {
   padding: .2em
@@ -125,7 +151,21 @@ label {
 
 .datalist .emailOpt {
   display: flex;
+  width: 100%;
+}
+
+.datalist .emailOpt.shortened {
+  width: calc(100% - 1.8em);
+}
+
+
+.email .option span {
+  display: flex;
   width: calc(100% - 2.5em);
+}
+
+.email .datalist .checkbox {
+  font-size: .85em;
 }
 
 .input .emailOpt {
@@ -200,22 +240,19 @@ label {
   cursor: not-allowed;
 }
 
-.errorMsg {
+.selectCheckboxContainer {
   position: absolute;
   top: 0;
-  width: 100%;
-  text-align: center;
-  color: rgb(255, 100, 100);
-  display: none;
+  right: 0;
   font-weight: 500;
-}
-
-.errorMsg.showErrorMsg {
-  display: block;
+  white-space: nowrap;
+  font-size: .9em;
+  font-size: .85em;
 }
 
 .templateOpt {
   font-weight: 500;
+  cursor: pointer;
 }
 
 .dark .input-container label span,
