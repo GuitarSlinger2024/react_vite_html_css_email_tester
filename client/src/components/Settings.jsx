@@ -8,7 +8,10 @@ function Settings({currentDiv}) {
         className={`settings-inner ${
           currentDiv !== 'settings' ? 'hideThisDiv' : ''
         }`}
-      ></div>
+      >
+        <h1>Settings</h1>
+        <p>This UI is currently under constructions</p>
+      </div>
     </section>
   )
 }
