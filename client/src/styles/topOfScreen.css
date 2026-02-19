@@ -19,7 +19,7 @@
 .main-title {
   text-align: center;
   line-height: .9;
-  padding: 5rem 5em .1rem;
+  padding: 2em 4.5em .1em;
 }
 
 .main-title span {
@@ -27,8 +27,3 @@
   width: 100%;
   text-align: center;
 }
-
-.main-title span:last-of-type {
-  font-size: .6em;
-}
-

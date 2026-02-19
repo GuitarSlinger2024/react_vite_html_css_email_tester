@@ -19,7 +19,7 @@ main {
 }
 
 @media screen and (max-width: 800px) {
-  body {
+  #root {
     font-size: 2vw;
   }
 }
