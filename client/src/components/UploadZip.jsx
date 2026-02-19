@@ -1,8 +1,15 @@
-function UploadZip() {
+function UploadZip({currentDiv}) {
   return (
-    <div>
-      Upload Zip
-    </div>
+    <section
+      className="uploadZip"
+      id="uploadZip"
+    >
+      <div
+        className={`uploadZip-inner ${
+          currentDiv !== 'uploadZip' ? 'hideThisDiv' : ''
+        }`}
+      ></div>
+    </section>
   )
 }
 

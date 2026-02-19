@@ -1,12 +1,3 @@
-.section.getCode {
-  display: inline-block;
-  inline-size: clamp(35em, 70%, 44em);
-  border-radius: 8px;
-  block-size: calc(100% - 0px);
-  block-size: 100%;
-  box-sizing: content-box;
-  letter-spacing: .1em;
-}
 
 .getCode #form1 {
   position: absolute;

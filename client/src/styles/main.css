@@ -18,6 +18,30 @@ main {
   margin-bottom: 75px;
 }
 
+section.getCode,
+section.uploadZip,
+section.settings,
+section.instructions {
+  display: inline-block;
+  inline-size: clamp(35em, 70%, 44em);
+  border-radius: 8px;
+  block-size: calc(100% - 0px);
+  block-size: 100%;
+  letter-spacing: .1em;
+  background-color: var(--input-bkground);
+}
+
+#uploadZip,
+#settings {
+  position: absolute;
+  height: 98%;
+}
+
+.hideThisDiv {
+  opacity: 0;
+  pointer-events: none;
+}
+
 @media screen and (max-width: 800px) {
   #root {
     font-size: 2vw;

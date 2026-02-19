@@ -6,7 +6,7 @@ import Main from './components/main'
 
 function App() {
   const [mode, setMode] = useState('dark')
-  const [currentDiv, setCurrentDiv] = useState('getCode')
+  const [currentDiv, setCurrentDiv] = useState('')
 
   return (
     <>

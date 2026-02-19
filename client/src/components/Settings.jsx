@@ -1,8 +1,15 @@
-function Settings() {
+function Settings({currentDiv}) {
   return (
-    <div>
-      Settings
-    </div>
+    <section
+      className="settings"
+      id="settings"
+    >
+      <div
+        className={`settings-inner ${
+          currentDiv !== 'settings' ? 'hideThisDiv' : ''
+        }`}
+      ></div>
+    </section>
   )
 }
 

@@ -1,9 +1,9 @@
 import '../styles/instructions.css'
 
-function Instructions() {
+function Instructions({currentDiv}) {
   return (
-    <div className="instructions">
-      <div className="instruction-inner">
+    <div className="instructions" id='instructions'>
+      <div className={`instruction-inner ${currentDiv !== 'instructions'} ? 'hideThisDiv' : ''`}>
         <h2>Instructions</h2>
         
         <p>
