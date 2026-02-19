@@ -1,5 +1,14 @@
 body {
   color: var(--text-color);
   background-color: var(--body-bkground);
-  transition: background-color .3s;
+  transition: background-color 0.3s;
+
+  max-width: 1000px;
+  margin: auto;
+}
+
+#top-nav-bar {
+  max-width: 970px;
+  margin: auto;
+  box-sizing: border-box;
 }
