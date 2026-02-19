@@ -27,31 +27,8 @@ function EmailDropdown({
     console.log('%cRed', 'color: red;font-size:20px', { options })
   }, [options])
 
-  // useEffect(() => {
-  //   if (showList && checkAll) {
-  //     console.log('%c Creating onclick event right now!!!!!!!!!!!!!!!!!')
-  //     // setTimeout(() => {
-  //       document.getElementById('root').onClick = e => {
-  //         e.preventDefault()
-  //         e.stopPropagation()
-  //         console.log(e)
-  //         myRef.current.focus()
-  //       }
-  //     // }, 100)
-  //   } else {
-  //     document.getElementById('root').onClick = null
-  //   }
-  // }, [showList])
-
-  // useEffect(() => {
-  //   document.body.addEventListener('click', closeSidemenu)
-
-  //   return function cleanup() {
-  //     window.removeEventListener('click', closeSidemenu)
-  //   }
-  // }, [])
   useEffect(() => {
-    if (showList) window.onclick = closeSidemenu
+    if (showList) window.onclick = hideEmailList
     else window.onclick = null
 
     return function cleanup() {
@@ -59,13 +36,15 @@ function EmailDropdown({
     }
   }, [showList])
 
-  function closeSidemenu(e) {
+  function hideEmailList(e) {
     e.preventDefault()
     e.stopPropagation()
     console.log('target', e.target)
     if (!e.target.closest('.dropdown.email')) {
       setTimeout(() => {
+        validateEmailInput()
         setShowList(false)
+        window.onclick = false
       }, 200)
     }
   }
@@ -84,12 +63,6 @@ function EmailDropdown({
             mode={mode}
             checked={checkAll}
             setChecked={setCheckAll}
-            // checked={addToMailingList}
-            // setChecked={setAddToMailingList.bind(null, !addToMailingList)}
-            // onclick={e => {
-            //   console.log('CHECKBOX')
-            //   checkboxClicked(e)
-            // }}
           />
         )}
         <p className="emailOpt">Check All</p>
@@ -228,6 +201,7 @@ function EmailDropdown({
               checked={selectOpts}
               setChecked={setSelectOpts.bind(null, !selectOpts)}
               className="select-addresses"
+              onclick={setNumOfChecksDisplay}
             />
           </div>
 

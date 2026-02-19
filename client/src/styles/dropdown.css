@@ -9,6 +9,10 @@ label {
   font-weight: 500;
 }
 
+.option .checkbox {
+  pointer-events: none !important;
+}
+
 .input {
   width: 100%;
   outline: none;
@@ -154,9 +158,9 @@ label {
   width: 100%;
 }
 
-.datalist .emailOpt.shortened {
+/* .datalist .emailOpt.shortened {
   width: calc(100% - 1.8em);
-}
+} */
 
 
 .email .option span {

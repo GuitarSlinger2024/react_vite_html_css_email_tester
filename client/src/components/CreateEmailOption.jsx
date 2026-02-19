@@ -38,13 +38,13 @@ export function CreateEmailOption({
         </p>
       </span>
 
-      <p className="trashCan">
+      {!selectOpts && <p className="trashCan">
         <img
           src={trash}
           alt="delete button"
           onClick={deleteAddress}
         />
-      </p>
+      </p>}
     </>
   )
 }
