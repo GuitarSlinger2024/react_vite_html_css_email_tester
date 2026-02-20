@@ -67,7 +67,7 @@ body {
 
   --error-background: hsla(0, 100%, 50%, 0.2);
 
-  --border-radius: 1;
+  --border-radius: 15;
 
   --blur-radius: 10px;
   --spread-radius: 3px;

@@ -67,7 +67,7 @@
     },
     {
       "id": "borderRadius",
-      "value": "5",
+      "value": "1",
       "text": "border-radius",
       "cssName": "--border-radius",
       "type": "border"

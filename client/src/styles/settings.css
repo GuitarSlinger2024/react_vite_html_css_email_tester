@@ -44,7 +44,7 @@
 
 .darkSide,
 .lightSide {
-  padding: 0.625em 0.625em;
+  padding: 0.625em 0;
   width: 12.5em !important;
   flex-shrink: 0;
 }
@@ -91,6 +91,7 @@
   margin: auto;
   text-align: center;
   font-weight: bold;
+  padding: 0 .5em;
 }
 
 .colorChoices .darkSide {
@@ -187,7 +188,7 @@
       for light & dark side texts 
 */
 
-.colorSelector span.image {
+.colorSelector span {
   border-radius: calc(var(--border-radius) * 0.0625em);
 }
 
