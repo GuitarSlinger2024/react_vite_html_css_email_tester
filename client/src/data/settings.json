@@ -9,14 +9,14 @@
     },
     {
       "className": "newSrc",
-      "value": "hsla(25,  76%, 45%, 0.4)",
+      "value": "hsla(25, 76%, 45%, 0.4)",
       "cssName": "--cid-background",
       "type": "hsla",
       "text": "cid:image_1"
     },
     {
       "className": "hslValues",
-      "value": "hsla(185,86%, 60%, 0.35)",
+      "value": "hsla(185, 86%, 60%, 0.35)",
       "cssName": "--hls-background",
       "type": "hsla",
       "text": "hsl(216, 60%, 55%)"
@@ -40,34 +40,35 @@
       "value": "hsla(0, 100%, 50%, 1)",
       "cssName": "--error-color",
       "type": "hsla",
-      "text": "hsla( error - text )"
+      "text": "hsla( error-text )"
     },
     {
       "className": "hslErrorsBkground",
       "value": "hsla(0, 100%, 50%, 0.2)",
       "cssName": "--error-background",
       "type": "hsla",
-      "text": "hsla( error - bkgrnd ) "
+      "text": "hsla( error-bkgrnd ) "
     }
   ],
   "blur": [
     {
-      "className": "blurInput",
+      "id": "blurInput",
       "value": "10",
+      "text": "blur-radius",
       "cssName": null,
-      "type": "blur",
-      "skipSetProp": true
+      "type": "blur"
     },
     {
-      "className": "spreadInput",
+      "id": "spreadInput",
       "value": "3",
+      "text": "spread-radius",
       "cssName": null,
-      "type": "spread",
-      "skipSetProp": true
+      "type": "spread"
     },
     {
-      "className": "borderRadius",
-      "value": "1",
+      "id": "borderRadius",
+      "value": "5",
+      "text": "border-radius",
       "cssName": "--border-radius",
       "type": "border"
     }

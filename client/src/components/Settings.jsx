@@ -4,6 +4,8 @@ import SETTINGS from '../data/settings.json'
 // import { showColorSettings } from '../scripts/colorFunctions'
 import { useEffect, useRef, useState } from 'react'
 import ColorChoice from './ColorChoice'
+import BlurInput from './BlurInput'
+import { text } from 'body-parser'
 
 function Settings({ currentDiv }) {
   const [colorSettings, setColorSettings] = useState(SETTINGS)
@@ -11,6 +13,10 @@ function Settings({ currentDiv }) {
 
   useEffect(() => {
     console.log('%csettings', 'color:blue', colorSettings)
+    colorSettings.colors.forEach(color => {
+      console.log({color})
+      document.body.style.setProperty( color.cssName, color.value)
+    })
     // showColorSettings(colorSettings)
   }, [colorSettings])
 
@@ -20,7 +26,7 @@ function Settings({ currentDiv }) {
       id="settings"
     >
       <div className="settings-inner">
-        <h2>Settings</h2>
+        <h2>Color Settings</h2>
         <p>
           Each item uses the same color for both light and dark mode. You can
           change the box-shadow blur and spread values. Adding a border-radius
@@ -55,11 +61,22 @@ function Settings({ currentDiv }) {
             <div className="darkSide">
               <span>Sample Blur</span>
             </div>
+            
+
+
             <div
               className="centerOf"
               style={{ padding: '0' }}
             >
-              <div>
+
+              {colorSettings.blur.map((blurVal, index) => <BlurInput 
+                id={blurVal.id}
+                text={blurVal.text}
+                value={blurVal.value}
+                index={index}
+              />)}
+
+              {/* <div>
                 <label for="blurInput">blur-radius</label>
                 <input
                   type="number"
@@ -67,6 +84,7 @@ function Settings({ currentDiv }) {
                 />
                 <span>px</span>
               </div>
+
               <div>
                 <label for="spreadInput">spread-radius</label>
                 <input
@@ -75,6 +93,7 @@ function Settings({ currentDiv }) {
                 />
                 <span>px</span>
               </div>
+
               <div>
                 <label for="borderRadius">border-radius</label>
                 <input
@@ -83,7 +102,8 @@ function Settings({ currentDiv }) {
                   className="borderRadius"
                 />
                 <span>px</span>
-              </div>
+              </div> */}
+
             </div>
             <div className="lightSide">
               <span>Sample Blur</span>

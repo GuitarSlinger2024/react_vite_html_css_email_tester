@@ -26,7 +26,7 @@
 
 .colorSelector {
   box-sizing: border-box;
-  height: 1.95em;
+  height: 2.5em;
   width: 40em;
   display: flex;
   justify-content: space-between;
@@ -64,8 +64,8 @@
   flex-direction: column;
   justify-content: space-evenly;
   width: 35%;
-  letter-spacing: .0625em;
-  border: .125em solid transparent;
+  letter-spacing: 0.0625em;
+  border: 0.125em solid transparent;
   box-sizing: border-box;
   color: var(--text-color);
   background-color: var(--input-bkground);
@@ -84,12 +84,14 @@
   border-color: red !important;
 }
 
-.darkSide span,
-.lightSide span {
-  display: inline-block;
+.darkSide span, .lightSide span {
+  display: block;
   white-space: nowrap;
-  width: 100%;
+  padding: 0 .5em;
+  width: min-content;
   margin: auto;
+  text-align: center;
+  font-weight: bold;
 }
 
 .colorChoices .darkSide {
@@ -111,48 +113,59 @@
   height: 15em;
 }
 
+.boxShadow .centerOf {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0px;
+  justify-content: center;
+  height: 6em;
+}
+
 .boxShadow .centerOf div {
   display: flex;
   justify-content: flex-end;
-  padding: .3em .5em;
+  align-items: center;
+  padding: 0.2em 0.5em;
 }
 
 .boxShadow .darkSide,
 .boxShadow .lightSide {
-  height: 8em;
+  height: 6em;
   display: flex;
   justify-content: center;
 }
 
 .boxShadow .darkSide span,
 .boxShadow .lightSide span {
- text-align: center;
+  text-align: center;
 }
 
 .colorSelector.boxShadow input {
-  width: 2.5em;
+  width: 3.5em;
   font-size: 1em;
-  margin-inline-start: .5em;
-  margin-inline-end: .3em;
+  margin-inline-start: 0.5em;
+  margin-inline-end: 0.3em;
+  padding-left: 0.3em;
   background: var(--background-color);
   outline: none;
   caret-color: var(--text-color);
   color: var(--text-color);
-  text-align: center;
+  /* text-align: center; */
 }
 
 /* Chrome, Safari, Edge, Opera */
-.colorSelector.boxShadow input::-webkit-outer-spin-button,
+/* .colorSelector.boxShadow input::-webkit-outer-spin-button,
 .colorSelector.boxShadow input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   appearance: none;
   margin: 0;
-}
+} */
 
 /* Firefox */
-.colorSelector.boxShadow input[type=number] {
+/* .colorSelector.boxShadow input[type='number'] {
   -moz-appearance: textfield;
-}
+} */
 
 .colorSelector input:focus {
   cursor: auto;
@@ -168,4 +181,61 @@
 
 .resetColorsBtn:hover {
   text-decoration: underline;
+}
+
+/* 
+      Colors and Background-colors 
+      for light & dark side texts 
+*/
+
+.colorSelector span.image {
+  border-radius: calc(var(--border-radius) * 0.0625em);
+}
+
+.boxShadow .darkSide span {
+  color: black;
+  background-color: white;
+  box-shadow: var(--box-shadow) white;
+}
+
+.boxShadow .lightSide span {
+  color: white;
+  background-color: black;
+  box-shadow: var(--box-shadow) black;
+}
+
+.oldSrc span.image {
+  background-color: var(--image-background);
+  box-shadow: var(--box-shadow) var(--image-background);
+}
+
+.newSrc span.image {
+  background-color: var(--cid-background);
+  box-shadow: var(--box-shadow) var(--cid-background);
+}
+
+.hslValues span.image {
+  background-color: var(--hls-background);
+  box-shadow: var(--box-shadow) var(--hls-background);
+}
+
+.hexValues span.image {
+  background-color: var(--hex-background);
+  box-shadow: var(--box-shadow) var(--hex-background);
+}
+
+.commentsColor span.image {
+  color: var(--comment-text) !important;
+}
+
+.hslErrorsText span.image {
+  background-color: var(--error-background);
+  color: var(--error-color);
+  box-shadow: var(--box-shadow) var(--error-background);
+}
+
+.hslErrorsBkground span.image {
+  background-color: var(--error-background);
+  color: var(--error-color);
+  box-shadow: var(--box-shadow) var(--error-background);
 }

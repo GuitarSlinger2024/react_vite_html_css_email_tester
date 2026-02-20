@@ -17,6 +17,10 @@ app.use(express.static(path.join(__dirname, 'client', 'dist')))
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
+app.get('/', (req, res) => {
+  res.json({health: 'good'})
+})
+
 app.get('/', async (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'))
 })

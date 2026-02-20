@@ -25,37 +25,54 @@ body {
   --main-bkground: rgb(220, 220, 220);
   --border-color: #aaa;
   --datalist-hover-bkgrnd: white;
-  --center-of-border: #bbb; 
+  --center-of-border: #bbb;
   --dropdown-bkgrnd: whitesmoke;
   --select-back: rgb(22, 167, 224);
-  --button-disabled: rgba(0, 0, 0, .2);
+  --button-disabled: rgba(0, 0, 0, 0.2);
   --button-hover: hsl(0, 0%, 90%);
-  --response-border: rgba(0, 0, 0, .4);
+  --response-border: rgba(0, 0, 0, 0.4);
 
   --flicker-color: rgb(75, 204, 255);
-  
+
   --input-bkground: white;
   --btn-bkground: hsl(0, 0%, 90%);
-  
+
   --green-template-label: rgb(0, 148, 0);
   --gold-back-label: hsl(41, 100%, 40%);
   --blue-directory-label: blue;
   --instruction-highlight: saddlebrown;
 
   --placeholder-color: #aaa;
-  
+
   scrollbar-color: var(--input-bkground) rgb(210, 210, 210) !important;
-  
-  --error-background: hsla(0, 100%, 50%, .2);
-  --error-color: red;
-  
+
   --background-color: var(--btn-bkground);
-  
+
   /* 
   --body-dark-bkground is used for light/dark side color settings
   This is the same weather in light or dark mode
   */
   --body-dark-bkground: #2e3440;
+
+  --image-background: hsla(60, 100%, 60%, 0.25);
+  --cid-background: hsla(25, 76%, 45%, 0.4);
+
+  --hls-background: hsla(185, 86%, 60%, 0.35);
+
+  --hex-background: hsla(220, 100%, 50%, 0.4);
+
+  --comment-text: hsla(120, 100%, 35%, 1);
+
+  --error-color: hsla(0, 100%, 50%, 1);
+
+  --error-background: hsla(0, 100%, 50%, 0.2);
+
+  --border-radius: 1;
+
+  --blur-radius: 10px;
+  --spread-radius: 3px;
+
+  --box-shadow: 0 0 var(--blur-radius) var(--spread-radius);
 }
 
 .dark {
@@ -66,18 +83,18 @@ body {
   --main-bkground: #2e3440;
   --border-color: #777;
   --datalist-hover-bkgrnd: black;
-  --center-of-border: #777; 
+  --center-of-border: #777;
   --dropdown-bkgrnd: #3b4252;
   --select-back: lightblue;
-  --button-disabled: rgba(255, 255, 255, .2);
+  --button-disabled: rgba(255, 255, 255, 0.2);
   --button-hover: hsl(220, 17%, 27%);
-  --response-border: rgba(255, 255, 255, .2);
-  
+  --response-border: rgba(255, 255, 255, 0.2);
+
   --flicker-color: rgb(39, 38, 38);
-  
+
   --input-bkground: #3b4252;
   --btn-bkground: #242933;
-  
+
   --green-template-label: lightgreen;
   --gold-back-label: yellow;
   --blue-directory-label: lightblue;
@@ -94,5 +111,3 @@ body {
                --main-bkground: #2e2e2e;
    */
 }
-
-
