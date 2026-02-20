@@ -1,6 +1,12 @@
-const path = require('path')
-const { readFile } = require('fs/promises')
-const { writeFile } = require('fs')
+import path from 'path'
+import { readFile } from 'fs/promises'
+import { writeFile } from 'fs'
+
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 //  Set CHANGE_DATABASE to true to change the actual notes.json file.
 //  When set to false, the FAKE_DATABASE resets every time the server re-starts.
@@ -98,4 +104,4 @@ async function writeToJson(data) {
   return data
 }
 
-module.exports = { getAllData, getSingleItem, addData, deleteItem, updateItem, updateAll }
+export default { getAllData, getSingleItem, addData, deleteItem, updateItem, updateAll }

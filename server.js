@@ -1,23 +1,29 @@
-require('colors')
-const express = require('express')
-const path = require('path')
-const cors = require('cors')
-const bodyParser = require('body-parser')
-const DATABASE = require('./utils/file_functions')
-const fs = require('fs')
-const Job = require('./cron')
+import('colors')
+import express from 'express'
+import path from 'path'
+import cors from 'cors'
+import bodyParser from 'body-parser'
+import DATABASE from './utils/file_functions.js'
+import fs from 'fs'
+import job from './cron.js'
+
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express()
 const PORT = process.env.PORT || 8180
 
-if (env.NODE_ENV === 'production') Job.start()
+job.start()
 
 app.use(express.json())
 // serve up production assets
 app.use(express.static(path.join(__dirname, 'client', 'dist')))
 // let the react app to handle any unknown routes
 // serve up the index.html if express does'nt recognize the route
-app.use(express.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 
 app.get('/api/health', (req, res) => {
