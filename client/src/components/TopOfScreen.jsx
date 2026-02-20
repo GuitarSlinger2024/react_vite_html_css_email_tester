@@ -14,7 +14,7 @@ function TopOfScreen({mode, setMode}) {
         <ModeSwitch mode={mode} setMode={setMode} />
 
         <h1 className="main-title">
-          <span>Test HTML CSS Emails</span>
+          <span>Test & Send HTML CSS Emails</span>
         </h1>
       </div>
     </>

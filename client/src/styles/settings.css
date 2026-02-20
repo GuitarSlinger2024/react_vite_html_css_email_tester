@@ -87,7 +87,6 @@
 .darkSide span, .lightSide span {
   display: block;
   white-space: nowrap;
-  padding: 0 .5em;
   width: min-content;
   margin: auto;
   text-align: center;

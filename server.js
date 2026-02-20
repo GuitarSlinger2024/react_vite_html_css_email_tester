@@ -5,9 +5,12 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const DATABASE = require('./utils/file_functions')
 const fs = require('fs')
+const Job = require('./cron')
 
 const app = express()
 const PORT = process.env.PORT || 8180
+
+if (env.NODE_ENV === 'production') Job.start()
 
 app.use(express.json())
 // serve up production assets
@@ -17,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'client', 'dist')))
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
-app.get('/', (req, res) => {
+app.get('/api/health', (req, res) => {
   res.json({health: 'good'})
 })
 
