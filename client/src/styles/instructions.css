@@ -1,5 +1,4 @@
-.instructions,
-.settings {
+.instructions {
   position: absolute;
   /* height: calc(100vh - 140px); */
   height: 93%;
@@ -40,16 +39,16 @@ section.instructions {
   box-sizing: border-box;
   width: 100%;
   height: min-content;
-  font-size: 16px;
+  font-size: 1em;
   overflow: hidden;
-  padding: 20px 0;
+  padding: 1.25em 0;
   /* background-color: white; */
 }
 
 
 .instructions p,
 .settings p {
-  margin: 15px;
+  margin: .9375em;
   letter-spacing: .0625em;
 }
 
@@ -60,7 +59,7 @@ section.instructions {
 }
 
 .instructions li {
-  margin: 10px 0;
+  margin: .625em 0;
 }
 
 .instructions a {

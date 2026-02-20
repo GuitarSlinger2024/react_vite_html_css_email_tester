@@ -14,11 +14,10 @@ function Main({ currentDiv, mode }) {
   return (
     <main id="main">
       <GetCode mode={mode} />
-      {currentDiv === 'uploadZip' && <UploadZip currentDiv={currentDiv} />}
-      {currentDiv === 'settings' && <Settings currentDiv={currentDiv} />}
-      {currentDiv === 'instructions' && (
-        <Instructions currentDiv={currentDiv} />
-      )}
+      {/* <UploadZip currentDiv={currentDiv} /> */}
+    <Settings currentDiv={currentDiv} />
+
+    {/*     <Instructions currentDiv={currentDiv} /> */}
     </main>
   )
 }

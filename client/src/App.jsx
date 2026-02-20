@@ -13,6 +13,7 @@ function App() {
       <TopOfScreen mode={mode} setMode={setMode}/>
       <Header currentDiv={currentDiv} setCurrentDiv={setCurrentDiv} />
       <Main currentDiv={currentDiv} mode={mode}/>
+      <Header currentDiv={currentDiv} setCurrentDiv={setCurrentDiv} />
     </>
   )
 }

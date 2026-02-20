@@ -13,9 +13,9 @@ main {
   flex-wrap: wrap;
   justify-content: space-evenly;
 
-  border: 5px solid var(--nav-bkgrnd);
+  border: .3125em solid var(--nav-bkgrnd);
   background-color: var(--main-bkground);
-  margin-bottom: 75px;
+  margin-bottom: 4.6875em;
 }
 
 section.getCode,
@@ -24,8 +24,6 @@ section.settings,
 section.instructions {
   display: inline-block;
   inline-size: clamp(35em, 70%, 44em);
-  border-radius: 8px;
-  block-size: calc(100% - 0px);
   block-size: 100%;
   letter-spacing: .1em;
   background-color: var(--input-bkground);

@@ -1,0 +1,64 @@
+[
+    {
+      "className": "oldSrc",
+      "value": "hsla(60, 100%, 60%, 0.25)",
+      "cssName": "--image-background",
+      "type": "hsla"
+    },
+    {
+      "className": "newSrc",
+      "value": "hsla(25,  76%, 45%, 0.4)",
+      "cssName": "--cid-background",
+      "type": "hsla"
+    },
+    {
+      "className": "hslValues",
+      "value": "hsla(185,86%, 60%, 0.35)",
+      "cssName": "--hls-background",
+      "type": "hsla"
+    },
+    {
+      "className": "hexValues",
+      "value": "hsla(220, 100%, 50%, 0.4)",
+      "cssName": "--hex-background",
+      "type": "hsla"
+    },
+    {
+      "className": "commentsColor",
+      "value": "hsla(120, 100%, 35%, 1)",
+      "cssName": "--comment-text",
+      "type": "hsla"
+    },
+    {
+      "className": "hslErrorsText",
+      "value": "hsla(0, 100%, 50%, 1)",
+      "cssName": "--error-color",
+      "type": "hsla"
+    },
+    {
+      "className": "hslErrorsBkground",
+      "value": "hsla(0, 100%, 50%, 0.2)",
+      "cssName": "--error-background",
+      "type": "hsla"
+    },
+    {
+      "className": "blurInput",
+      "value": "10",
+      "cssName": null,
+      "type": "blur",
+      "skipSetProp": true
+    },
+    {
+      "className": "spreadInput",
+      "value": "3",
+      "cssName": null,
+      "type": "spread",
+      "skipSetProp": true
+    },
+    {
+      "className": "borderRadius",
+      "value": "1",
+      "cssName": "--border-radius",
+      "type": "border"
+    }
+  ]

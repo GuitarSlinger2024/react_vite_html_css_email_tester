@@ -1,0 +1,170 @@
+#settings {
+  padding-top: 1.25em;
+  width: 42em;
+}
+
+.resetColorsBtn {
+  position: absolute;
+  top: 1.25em;
+  right: 1.25em;
+  font-size: 0.9375em;
+  cursor: pointer;
+}
+
+.settings h2 {
+  text-align: center;
+  text-decoration: underline;
+  width: 100%;
+}
+
+.colorChoices {
+  position: relative;
+  height: fit-content;
+  margin: 1.875em auto;
+  width: fit-content;
+}
+
+.colorSelector {
+  box-sizing: border-box;
+  height: 1.95em;
+  width: 38em;
+  display: flex;
+  justify-content: space-between;
+  background-color: #e6e6e6;
+}
+
+.dark .colorSelector {
+  background-color: transparent;
+}
+
+.colorChoices .darkSide {
+  background-color: var(--body-dark-bkground);
+  color: white;
+}
+
+.darkSide,
+.lightSide {
+  padding: 0.625em 0.625em;
+  width: 12.5em !important;
+  flex-shrink: 0;
+}
+
+.darkSide,
+.lightSide,
+.centerOf {
+  height: 100%;
+  border-radius: 0;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.centerOf {
+  flex-shrink: 2;
+  padding: 0.625em;
+  padding-left: 0.3125em;
+  text-align: center;
+  width: 35%;
+  letter-spacing: 0.0625em;
+  border: 0.125em solid transparent;
+  box-sizing: border-box;
+  color: var(--text-color);
+  background-color: var(--input-bkground);
+}
+
+.colorSelector:hover:not(:focus-within) .centerOf {
+  border-color: var(--center-of-border);
+}
+
+.centerOf:focus {
+  outline: none;
+  border-color: var(--text-color);
+}
+
+.colorError {
+  border-color: red !important;
+}
+
+.darkSide span,
+.lightSide span {
+  display: inline-block;
+  white-space: nowrap;
+  width: 100%;
+  margin: auto;
+}
+
+.colorChoices .darkSide {
+  background-color: var(--body-dark-bkground);
+  color: white;
+}
+
+.colorChoices .lightSide {
+  background-color: white;
+  color: black !important;
+}
+
+.colorSelector input {
+  cursor: pointer;
+}
+
+.colorSelector.boxShadow {
+  height: 15em;
+}
+
+.boxShadow .centerOf div {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5em;
+}
+
+.boxShadow .darkSide,
+.boxShadow .lightSide {
+  height: 8em;
+  display: flex;
+  justify-content: center;
+}
+
+.boxShadow .darkSide span,
+.boxShadow .lightSide span {
+ text-align: center;
+}
+
+.colorSelector.boxShadow input {
+  width: 2.5em;
+  font-size: 1em;
+  margin-inline-start: .5em;
+  margin-inline-end: .3em;
+  background: var(--background-color);
+  outline: none;
+  caret-color: var(--text-color);
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.colorSelector.boxShadow input::-webkit-outer-spin-button,
+.colorSelector.boxShadow input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.colorSelector.boxShadow input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.colorSelector input:focus {
+  cursor: auto;
+}
+
+.resetColorsBtn {
+  position: absolute;
+  top: 1.25em;
+  right: 1.25em;
+  font-size: 0.9375em;
+  cursor: pointer;
+}
+
+.resetColorsBtn:hover {
+  text-decoration: underline;
+}
