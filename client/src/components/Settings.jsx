@@ -1,7 +1,9 @@
 import '../styles/settings.css'
+// import '../styles/styles.css'
 import SETTINGS from '../data/settings.json'
-import { showColorSettings } from '../scripts/colorFunctions'
+// import { showColorSettings } from '../scripts/colorFunctions'
 import { useEffect, useRef, useState } from 'react'
+import ColorChoice from './ColorChoice'
 
 function Settings({ currentDiv }) {
   const [colorSettings, setColorSettings] = useState(SETTINGS)
@@ -9,7 +11,7 @@ function Settings({ currentDiv }) {
 
   useEffect(() => {
     console.log('%csettings', 'color:blue', colorSettings)
-    showColorSettings(colorSettings)
+    // showColorSettings(colorSettings)
   }, [colorSettings])
 
   return (
@@ -33,107 +35,28 @@ function Settings({ currentDiv }) {
           Reset
         </div>
 
-        <div class="colorChoices">
-          <div class="colorSelector oldSrc">
-            <div class="darkSide">
-              <span class="image">./images/img.png</span>
-            </div>
-            <input
-              type="string"
-              class="centerOf"
-            />
-            <div class="lightSide">
-              <span class="image">./images/img.png</span>
-            </div>
-          </div>
+        <div className="colorChoices">
 
-          <div class="colorSelector newSrc">
-            <div class="darkSide">
-              <span class="cid">cid:image_1</span>
-            </div>
-            <input
-              type="string"
-              class="centerOf"
-            />
-            <div class="lightSide">
-              <span class="cid">cid:image_1</span>
-            </div>
-          </div>
-
-          <div class="colorSelector hslValues">
-            <div class="darkSide">
-              <span class="hsl">hsl(216, 60%, 55%)</span>
-            </div>
-            <input
-              type="string"
-              class="centerOf"
-            />
-            <div class="lightSide">
-              <span class="hsl">hsl(216, 60%, 55%)</span>
-            </div>
-          </div>
-
-          <div class="colorSelector hexValues">
-            <div class="darkSide">
-              <span class="hex">#4980d2</span>
-            </div>
-            <input
-              type="string"
-              class="centerOf"
-            />
-            <div class="lightSide">
-              <span class="hex">#4980d2</span>
-            </div>
-          </div>
-
-          <div class="colorSelector commentsColor">
-            <div class="darkSide">
-              <span class="comment">{'<-- Comments -->'}</span>
-            </div>
-            <input
-              type="string"
-              class="centerOf"
-            />
-            <div class="lightSide">
-              <span class="comment">{'<-- Comments -->'}</span>
-            </div>
-          </div>
-
-          <div class="colorSelector hslErrorsText">
-            <div class="darkSide">
-              <span class="error">hsla( error - text )</span>
-            </div>
-            <input
-              type="string"
-              class="centerOf"
-            />
-            <div class="lightSide">
-              <span class="error">hsla( error - text )</span>
-            </div>
-          </div>
-
-          <div class="colorSelector hslErrorsBkground">
-            <div class="darkSide">
-              <span class="error">hsla( error - bkgrnd ) </span>
-            </div>
-            <input
-              type="string"
-              class="centerOf"
-            />
-            <div class="lightSide">
-              <span class="error">hsla( error - bkgrnd ) </span>
-            </div>
-          </div>
+          {colorSettings.colors.map((setting, index) => {
+            return (<ColorChoice 
+              className={setting.className}
+              value={setting.value}
+              cssName={setting.cssName}
+              index={index}
+              type={setting.type}
+              text={setting.text}
+            />)
+          })}
 
           <div
-            class="colorSelector boxShadow"
+            className="colorSelector boxShadow"
             style={{ blockSize: 'max-content' }}
           >
-            <div class="darkSide">
+            <div className="darkSide">
               <span>Sample Blur</span>
             </div>
             <div
-              class="centerOf"
+              className="centerOf"
               style={{ padding: '0' }}
             >
               <div>
@@ -157,12 +80,12 @@ function Settings({ currentDiv }) {
                 <input
                   type="number"
                   id="borderRadius"
-                  class="borderRadius"
+                  className="borderRadius"
                 />
                 <span>px</span>
               </div>
             </div>
-            <div class="lightSide">
+            <div className="lightSide">
               <span>Sample Blur</span>
             </div>
           </div>

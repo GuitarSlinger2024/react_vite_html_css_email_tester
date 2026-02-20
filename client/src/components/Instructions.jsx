@@ -11,6 +11,8 @@ function Instructions({currentDiv}) {
           programmer to use it. However, if you would like to use this program
           locally you will need to set up a local server (such as xampp). See
           'Install Locally' below.
+          <br />
+          Also, pay attention, this is a new reactJS version, and it is far from done. Nothing really does anything yet, and the rest of these instructions have not been updated.
         </p>
 
         <p>

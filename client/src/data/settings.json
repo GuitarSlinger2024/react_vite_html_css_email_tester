@@ -1,46 +1,56 @@
-[
+{
+  "colors": [
     {
       "className": "oldSrc",
       "value": "hsla(60, 100%, 60%, 0.25)",
       "cssName": "--image-background",
-      "type": "hsla"
+      "type": "hsla",
+      "text": "./images/img.png"
     },
     {
       "className": "newSrc",
       "value": "hsla(25,  76%, 45%, 0.4)",
       "cssName": "--cid-background",
-      "type": "hsla"
+      "type": "hsla",
+      "text": "cid:image_1"
     },
     {
       "className": "hslValues",
       "value": "hsla(185,86%, 60%, 0.35)",
       "cssName": "--hls-background",
-      "type": "hsla"
+      "type": "hsla",
+      "text": "hsl(216, 60%, 55%)"
     },
     {
       "className": "hexValues",
       "value": "hsla(220, 100%, 50%, 0.4)",
       "cssName": "--hex-background",
-      "type": "hsla"
+      "type": "hsla",
+      "text": "#4980d2"
     },
     {
       "className": "commentsColor",
       "value": "hsla(120, 100%, 35%, 1)",
       "cssName": "--comment-text",
-      "type": "hsla"
+      "type": "hsla",
+      "text": "<-- Comments -->"
     },
     {
       "className": "hslErrorsText",
       "value": "hsla(0, 100%, 50%, 1)",
       "cssName": "--error-color",
-      "type": "hsla"
+      "type": "hsla",
+      "text": "hsla( error - text )"
     },
     {
       "className": "hslErrorsBkground",
       "value": "hsla(0, 100%, 50%, 0.2)",
       "cssName": "--error-background",
-      "type": "hsla"
-    },
+      "type": "hsla",
+      "text": "hsla( error - bkgrnd ) "
+    }
+  ],
+  "blur": [
     {
       "className": "blurInput",
       "value": "10",
@@ -62,3 +72,4 @@
       "type": "border"
     }
   ]
+}
