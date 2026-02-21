@@ -172,6 +172,7 @@
 
 .boxShadow input:focus {
   cursor: auto;
+  border: .05em solid var(--placeholder-color)
 }
 
 .resetColorsBtn {
