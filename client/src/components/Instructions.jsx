@@ -1,19 +1,37 @@
 import '../styles/instructions.css'
 
-function Instructions({currentDiv}) {
+function Instructions({ currentDiv }) {
   return (
-    <div id='instructions' className={`instructions ${currentDiv !== 'instructions' ? 'hideThisDiv' : ''}`}>
+    <div
+      id="instructions"
+      className={`instructions ${
+        currentDiv !== 'instructions' ? 'hideThisDiv' : ''
+      }`}
+    >
       <div className={`instruction-inner`}>
         <h2>Instructions</h2>
-        
+
         <p>
           First, I have re-worked this program so you do not have to be a PHP
           programmer to use it. However, if you would like to use this program
           locally you will need to set up a local server (such as xampp). See
           'Install Locally' below.
           <br />
-          Also, pay attention, this is a new reactJS version, and it is far from done. Nothing really does anything yet, and the rest of these instructions have not been updated.
         </p>
+
+        <h3
+          style={{
+            inlineSize: '100em',
+            textWrap: 'balance',
+            maxInlineSize: '40em',
+            margin: 'auto',
+            textAlign: 'center',
+          }}
+        >
+          Attention: this is a new react JS version, and it is far from done.
+          Nothing really does anything yet, and the rest of these instructions
+          have not been updated.
+        </h3>
 
         <p>
           This is an aid in creating HTML Email templates. With this program you
