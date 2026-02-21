@@ -9,19 +9,19 @@ function ColorChoice({
   text
 }) {
   return (
-    <div key={index} className={`colorSelector ${className}`}>
-      <div className='darkSide'>
+    <>
+      <div className={`darkSide ${className}`}>
         <span className={`image`}>{text}</span>
       </div>
       <input
         type="string"
-        className="centerOf"
+        className={`centerOf ${className}`}
         value={value}
       />
-      <div className='lightSide'>
+      <div className={`lightSide ${className}`}>
         <span className={`image`}>{text}</span>
       </div>
-    </div>
+    </>
   )
 }
 

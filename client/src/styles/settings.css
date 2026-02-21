@@ -18,24 +18,37 @@
 }
 
 .colorChoices {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1fr;
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-areas: 
+    'a1 a2 a3'
+    'b1 b2 b3'
+    'c1 c2 c3'
+    'd1 d2 d3'
+    'e1 e2 e3'
+    'f1 f2 f3'
+    'g1 g2 g3'
+    'blur1 input blur2'
+    'blur1 input blur2'
+    'blur1 input blur2'
+  ;
   position: relative;
-  height: fit-content;
   margin: 1.875em auto;
   width: fit-content;
 }
 
-.colorSelector {
+/* .colorSelector {
   box-sizing: border-box;
   height: 2.5em;
   width: 40em;
   display: flex;
   justify-content: space-between;
-  background-color: #e6e6e6;
-}
+} */
 
-.dark .colorSelector {
+/* .dark .colorSelector {
   background-color: transparent;
-}
+} */
 
 .colorChoices .darkSide {
   background-color: var(--body-dark-bkground);
@@ -44,7 +57,7 @@
 
 .darkSide,
 .lightSide {
-  padding: 0.625em 0;
+  padding: 0.58em 0;
   width: 12.5em !important;
   flex-shrink: 0;
 }
@@ -60,18 +73,12 @@
 
 .centerOf {
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  width: 35%;
-  letter-spacing: 0.0625em;
-  border: 0.125em solid transparent;
-  box-sizing: border-box;
+  letter-spacing: .0625em;
   color: var(--text-color);
   background-color: var(--input-bkground);
 }
 
-.colorSelector:hover:not(:focus-within) .centerOf {
+.centerOf {
   border-color: var(--center-of-border);
 }
 
@@ -100,48 +107,45 @@
 }
 
 .colorChoices .lightSide {
-  background-color: white;
+  background-color: rgb(255, 250, 240);
+  background-color: rgb(239, 239, 239);
   color: black !important;
 }
 
-.colorSelector input {
+.colorChoices input {
   font-size: 1em;
   cursor: pointer;
 }
 
-.colorSelector.boxShadow {
-  height: 15em;
-}
-
-.boxShadow .centerOf {
+.boxShadow.centerOf {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   padding: 0px;
   justify-content: center;
-  height: 6em;
+  block-size: 6em !important;
 }
 
-.boxShadow .centerOf div {
+.boxShadow.centerOf div {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 0.2em 0.5em;
 }
 
-.boxShadow .darkSide,
-.boxShadow .lightSide {
+.boxShadow.darkSide,
+.boxShadow.lightSide {
   height: 6em;
   display: flex;
   justify-content: center;
 }
 
-.boxShadow .darkSide span,
-.boxShadow .lightSide span {
+.boxShadow.darkSide span,
+.boxShadow.lightSide span {
   text-align: center;
 }
 
-.colorSelector.boxShadow input {
+.boxShadow input {
   width: 3.5em;
   font-size: 1em;
   margin-inline-start: 0.5em;
@@ -167,7 +171,7 @@
   -moz-appearance: textfield;
 } */
 
-.colorSelector input:focus {
+.boxShadow input:focus {
   cursor: auto;
 }
 
@@ -188,25 +192,39 @@
       for light & dark side texts 
 */
 
-.colorSelector span {
+/* This covers the radius for all examples */
+.colorChoices span {
   border-radius: calc(var(--border-radius) * 0.0625em);
 }
 
-.boxShadow .darkSide span {
+.boxShadow.darkSide span {
   color: black;
   background-color: white;
   box-shadow: var(--box-shadow) white;
 }
 
-.boxShadow .lightSide span {
+.boxShadow.lightSide span {
   color: white;
   background-color: black;
   box-shadow: var(--box-shadow) black;
 }
 
+/* Each grid cell */
 .oldSrc span.image {
   background-color: var(--image-background);
   box-shadow: var(--box-shadow) var(--image-background);
+}
+
+.darkSide.oldSrc {
+  grid-area: a1;
+}
+
+.centerOf.oldSrc {
+  grid-area: a2;
+}
+
+.lightSide.oldSrc {
+  grid-area: a3;
 }
 
 .newSrc span.image {
@@ -214,9 +232,33 @@
   box-shadow: var(--box-shadow) var(--cid-background);
 }
 
+.darkSide.newSrc {
+  grid-area: b1;
+}
+
+.centerOf.newSrc {
+  grid-area: b2;
+}
+
+.lightSide.newSrc {
+  grid-area: b3;
+}
+
 .hslValues span.image {
   background-color: var(--hls-background);
   box-shadow: var(--box-shadow) var(--hls-background);
+}
+
+.darkSide.hslValues {
+  grid-area: c1;
+}
+
+.centerOf.hslValues {
+  grid-area: c2;
+}
+
+.lightSide.hslValues {
+  grid-area: c3;
 }
 
 .hexValues span.image {
@@ -224,8 +266,32 @@
   box-shadow: var(--box-shadow) var(--hex-background);
 }
 
+.darkSide.hexValues {
+  grid-area: d1;
+}
+
+.centerOf.hexValues {
+  grid-area: d2;
+}
+
+.lightSide.hexValues {
+  grid-area: d3;
+}
+
 .commentsColor span.image {
   color: var(--comment-text) !important;
+}
+
+.darkSide.commentsColor {
+  grid-area: e1;
+}
+
+.centerOf.commentsColor {
+  grid-area: e2;
+}
+
+.lightSide.commentsColor {
+  grid-area: e3;
 }
 
 .hslErrorsText span.image {
@@ -234,8 +300,44 @@
   box-shadow: var(--box-shadow) var(--error-background);
 }
 
+.darkSide.hslErrorsText {
+  grid-area: f1;
+}
+
+.centerOf.hslErrorsText {
+  grid-area: f2;
+}
+
+.lightSide.hslErrorsText {
+  grid-area: f3;
+}
+
 .hslErrorsBkground span.image {
   background-color: var(--error-background);
   color: var(--error-color);
   box-shadow: var(--box-shadow) var(--error-background);
+}
+
+.darkSide.hslErrorsBkground {
+  grid-area: g1;
+}
+
+.centerOf.hslErrorsBkground {
+  grid-area: g2;
+}
+
+.lightSide.hslErrorsBkground {
+  grid-area: g3;
+}
+
+.boxShadow.darkSide {
+  grid-area: blur1;
+}
+
+.boxShadow.centerOf {
+  grid-area: input;
+}
+
+.boxShadow.lightSide {
+  grid-area: blur2;
 }

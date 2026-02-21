@@ -14,8 +14,8 @@ function Settings({ currentDiv }) {
   useEffect(() => {
     console.log('%csettings', 'color:blue', colorSettings)
     colorSettings.colors.forEach(color => {
-      console.log({color})
-      document.body.style.setProperty( color.cssName, color.value)
+      console.log({ color })
+      document.body.style.setProperty(color.cssName, color.value)
     })
     // showColorSettings(colorSettings)
   }, [colorSettings])
@@ -42,73 +42,41 @@ function Settings({ currentDiv }) {
         </div>
 
         <div className="colorChoices">
-
           {colorSettings.colors.map((setting, index) => {
-            return (<ColorChoice 
-              className={setting.className}
-              value={setting.value}
-              cssName={setting.cssName}
-              index={index}
-              type={setting.type}
-              text={setting.text}
-            />)
+            return (
+              <ColorChoice
+                className={setting.className}
+                value={setting.value}
+                cssName={setting.cssName}
+                index={index}
+                type={setting.type}
+                text={setting.text}
+              />
+            )
           })}
 
-          <div
-            className="colorSelector boxShadow"
-            style={{ blockSize: 'max-content' }}
-          >
-            <div className="darkSide">
+
+            <div className="boxShadow darkSide">
               <span>Sample Blur</span>
             </div>
-            
-
 
             <div
-              className="centerOf"
+              className="boxShadow centerOf"
               style={{ padding: '0' }}
             >
-
-              {colorSettings.blur.map((blurVal, index) => <BlurInput 
-                id={blurVal.id}
-                text={blurVal.text}
-                value={blurVal.value}
-                index={index}
-              />)}
-
-              {/* <div>
-                <label for="blurInput">blur-radius</label>
-                <input
-                  type="number"
-                  id="blurInput"
+              {colorSettings.blur.map((blurVal, index) => (
+                <BlurInput
+                  id={blurVal.id}
+                  text={blurVal.text}
+                  value={blurVal.value}
+                  index={index}
                 />
-                <span>px</span>
-              </div>
-
-              <div>
-                <label for="spreadInput">spread-radius</label>
-                <input
-                  type="number"
-                  id="spreadInput"
-                />
-                <span>px</span>
-              </div>
-
-              <div>
-                <label for="borderRadius">border-radius</label>
-                <input
-                  type="number"
-                  id="borderRadius"
-                  className="borderRadius"
-                />
-                <span>px</span>
-              </div> */}
+              ))}
 
             </div>
-            <div className="lightSide">
+            <div className="boxShadow lightSide">
               <span>Sample Blur</span>
             </div>
-          </div>
         </div>
       </div>
     </section>
