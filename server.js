@@ -16,7 +16,7 @@ const __dirname = dirname(__filename);
 const app = express()
 const PORT = process.env.PORT || 8180
 
-// job.start()
+job.start()
 
 app.use(express.json())
 // serve up production assets
