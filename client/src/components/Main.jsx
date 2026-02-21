@@ -14,10 +14,10 @@ function Main({ currentDiv, mode }) {
   return (
     <main id="main">
       <GetCode mode={mode} />
-      {/* <UploadZip currentDiv={currentDiv} /> */}
+      <UploadZip currentDiv={currentDiv} />
     <Settings currentDiv={currentDiv} />
 
-    {/*     <Instructions currentDiv={currentDiv} /> */}
+        <Instructions currentDiv={currentDiv} />
     </main>
   )
 }

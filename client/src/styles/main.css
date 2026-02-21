@@ -30,7 +30,8 @@ section.instructions {
 }
 
 #uploadZip,
-#settings {
+#settings,
+#instructions {
   position: absolute;
   height: 98%;
 }

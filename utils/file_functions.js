@@ -1,3 +1,5 @@
+//  This is for the email address full CRUD dropdown menu.
+
 import path from 'path'
 import { readFile } from 'fs/promises'
 import { writeFile } from 'fs'
