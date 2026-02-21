@@ -1,6 +1,6 @@
 #settings {
   padding-top: 1.25em;
-  width: 42em;
+  width: 44em;
 }
 
 .resetColorsBtn {
@@ -20,8 +20,9 @@
 .colorChoices {
   display: grid;
   grid-template-columns: 1fr 1.1fr 1fr;
-  grid-template-rows: repeat(10, 1fr);
-  grid-template-areas: 
+  grid-template-rows: 0.3fr repeat(10, 1fr);
+  grid-template-areas:
+    'dark clear light'
     'a1 a2 a3'
     'b1 b2 b3'
     'c1 c2 c3'
@@ -31,13 +32,11 @@
     'g1 g2 g3'
     'blur1 input blur2'
     'blur1 input blur2'
-    'blur1 input blur2'
-  ;
+    'blur1 input blur2';
   position: relative;
-  margin: 1.875em auto;
-  width: fit-content;
+  margin: 1.2em auto;
+  width: 97%;
 }
-
 /* .colorSelector {
   box-sizing: border-box;
   height: 2.5em;
@@ -58,47 +57,44 @@
 .darkSide,
 .lightSide {
   padding: 0.58em 0;
-  width: 12.5em !important;
-  flex-shrink: 0;
 }
 
-.darkSide,
-.lightSide,
-.centerOf {
-  height: 100%;
-  border-radius: 0;
-  white-space: nowrap;
-  display: inline-block;
-}
-
-.centerOf {
+.centerOf > input {
   text-align: center;
-  letter-spacing: .0625em;
+  /* letter-spacing: .0625em; */
   color: var(--text-color);
   background-color: var(--input-bkground);
 }
 
-.centerOf {
+.centerOf:not(.boxShadow) {
   border-color: var(--center-of-border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.centerOf:focus {
+.centerOf > input:focus {
   outline: none;
-  border-color: var(--text-color);
+  border-color: var(--placeholder-color);
+}
+
+.boxShadow .centerOf {
+  align-items: right;
 }
 
 .colorError {
   border-color: red !important;
 }
 
-.darkSide span, .lightSide span {
+.darkSide span,
+.lightSide span {
   display: block;
   white-space: nowrap;
   width: min-content;
   margin: auto;
   text-align: center;
   font-weight: bold;
-  padding: 0 .5em;
+  padding: 0 0.5em;
 }
 
 .colorChoices .darkSide {
@@ -107,22 +103,26 @@
 }
 
 .colorChoices .lightSide {
-  background-color: rgb(255, 250, 240);
-  background-color: rgb(239, 239, 239);
+  background-color: var(--text-color);
   color: black !important;
 }
 
 .colorChoices input {
   font-size: 1em;
+  height: 1.4em;
   cursor: pointer;
+  border: 0.1em solid transparent;
+}
+
+.colorChoices input:not([type='number']) {
+  padding: .9em;
 }
 
 .boxShadow.centerOf {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  padding: 0px;
   justify-content: center;
+  padding-right: 0.5em !important;
   block-size: 6em !important;
 }
 
@@ -150,12 +150,11 @@
   font-size: 1em;
   margin-inline-start: 0.5em;
   margin-inline-end: 0.3em;
-  padding-left: 0.3em;
+  padding-inline-start: 0.6em;
   background: var(--background-color);
-  outline: none;
   caret-color: var(--text-color);
   color: var(--text-color);
-  /* text-align: center; */
+  text-align: left;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -209,6 +208,14 @@
   box-shadow: var(--box-shadow) black;
 }
 
+.blankDark {
+  background-color: var(--body-dark-bkground);
+}
+
+.blankLight {
+  background-color: var(--text-color);
+}
+
 /* Each grid cell */
 .oldSrc span.image {
   background-color: var(--image-background);
@@ -217,10 +224,12 @@
 
 .darkSide.oldSrc {
   grid-area: a1;
+  padding-top: 0.2em;
 }
 
 .centerOf.oldSrc {
   grid-area: a2;
+  text-align: center;
 }
 
 .lightSide.oldSrc {

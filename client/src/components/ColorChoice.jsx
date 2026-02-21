@@ -13,11 +13,13 @@ function ColorChoice({
       <div className={`darkSide ${className}`}>
         <span className={`image`}>{text}</span>
       </div>
+      <div className={`centerOf ${className}`}  >
       <input
         type="string"
-        className={`centerOf ${className}`}
         value={value}
-      />
+      />        
+      </div>
+
       <div className={`lightSide ${className}`}>
         <span className={`image`}>{text}</span>
       </div>

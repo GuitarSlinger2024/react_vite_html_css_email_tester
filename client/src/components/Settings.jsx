@@ -42,6 +42,12 @@ function Settings({ currentDiv }) {
         </div>
 
         <div className="colorChoices">
+
+          <div className='blankDark'></div>
+          <div></div>
+          <div className='blankLight'></div>
+
+
           {colorSettings.colors.map((setting, index) => {
             return (
               <ColorChoice
