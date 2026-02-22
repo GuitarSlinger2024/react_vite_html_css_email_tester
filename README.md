@@ -1,4 +1,4 @@
-This is meant to be a way to text HTML CSS email by first previewing them in the app, then by sending them to one or more email address so you can look at what is actually send. The github repo for this can be found at:
+This is meant to be a way to send HTML CSS email by first previewing them in the app, then by sending them to one or more email address so you can look at what is actually send. The github repo for this can be found at:
 
   https://react-vite-html-css-email-tester.onrender.com
 
