@@ -104,4 +104,4 @@ app.post('/getTemplates', async (req, res) => {
   }, 1000)
 })
 
-app.listen(PORT, () => console.log(`Listening at: ${PORT}`))
+app.listen(PORT, () => console.log(`Listening at: http://localhost:${PORT}`))

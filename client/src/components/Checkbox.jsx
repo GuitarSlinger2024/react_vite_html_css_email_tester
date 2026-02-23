@@ -19,11 +19,7 @@ const Checkbox = ({
   onclick,
 }) => {
   function toggle() {
-    if (showNewMsg) {
-      showNewMsg()
-      uncheckFavorites(name === 'favorites' ? 'all' : name)
-      return
-    }
+    console.log(showNewMsg)
 
     if (onclick) onclick()
 
@@ -82,7 +78,7 @@ const Checkbox = ({
   return (
     <div
       style={styles.container}
-      // onChange={toggle}
+      onChange={toggle}
       onClick={toggle}
       className="checkbox noSelect"
     >
