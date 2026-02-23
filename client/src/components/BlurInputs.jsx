@@ -21,6 +21,10 @@ function BlurInputs({ blurVal, setNewVal, index }) {
     document.body.style.setProperty(blurVal.cssName, newValue + 'px')
   }, [value])
 
+  useEffect(() => {
+    setValue(blurVal.value)
+  }, [blurVal])
+
   function handleKeyboard(e) {
     console.log(e.key)
     if (e.key === 'Enter') e.target.blur()
