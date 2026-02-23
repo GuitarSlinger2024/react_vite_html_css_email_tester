@@ -42,7 +42,8 @@ function Header({currentDiv, setCurrentDiv}) {
       </ul>
 
       <a
-        href="test_email_forms.zip"
+        href="https://github.com/GuitarSlinger2024/react_vite_html_css_email_tester.git"
+        target='_blank'
       >
         <button>Github Repo</button>
       </a>

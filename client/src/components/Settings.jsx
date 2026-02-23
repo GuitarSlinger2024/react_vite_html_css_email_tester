@@ -44,10 +44,8 @@ function Settings({ currentDiv }) {
       <div className="settings-inner">
         <h2>Color Settings</h2>
         <p>
-          Each item uses the same color for both light and dark mode. You can
-          change the box-shadow blur and spread values. Adding a border-radius
-          can have a bigger effect when used with a box shadow instead of
-          padding.
+          The values in the center can be seen here in light and dark mode. Any valid css color value can be added (hsl, hex, color names, et.), and a border-radius and
+          box-shadow (blur and spread values) can easily be customized or removed. 
         </p>
 
         <div
