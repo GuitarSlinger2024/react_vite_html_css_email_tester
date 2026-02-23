@@ -103,7 +103,7 @@
 }
 
 .colorChoices .lightSide {
-  background-color: var(--text-color);
+  background-color: white;
   color: black !important;
 }
 
@@ -214,7 +214,7 @@
 }
 
 .blankLight {
-  background-color: var(--text-color);
+  background-color: white;
 }
 
 /* Each grid cell */
