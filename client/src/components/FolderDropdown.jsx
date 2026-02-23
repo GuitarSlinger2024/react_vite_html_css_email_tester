@@ -23,7 +23,8 @@ function FolderDropdown({
   const myRef = useRef()
 
   useEffect(() => {
-    console.log('%cRed', 'color: red;font-size:20px', { options })
+    if (options.length === 0) return
+    console.log('%c Folder Dropdown Gold', 'color: gold;font-size:20px', { options })
   }, [options])
 
   //                  Start here for emails !!!!

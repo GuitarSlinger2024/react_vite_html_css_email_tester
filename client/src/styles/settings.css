@@ -61,7 +61,7 @@
 
 .centerOf > input {
   text-align: center;
-  /* letter-spacing: .0625em; */
+  /* letter-spacing: .625em; */
   color: var(--text-color);
   background-color: var(--input-bkground);
 }
@@ -115,7 +115,7 @@
 }
 
 .colorChoices input:not([type='number']) {
-  padding: .9em;
+  padding: 0.9em;
 }
 
 .boxShadow.centerOf {
@@ -146,11 +146,11 @@
 }
 
 .boxShadow input {
-  width: 3.5em;
+  width: 3.7em;
   font-size: 1em;
   margin-inline-start: 0.5em;
   margin-inline-end: 0.3em;
-  padding-inline-start: 0.6em;
+  padding-inline-start: 0.2em;
   background: var(--background-color);
   caret-color: var(--text-color);
   color: var(--text-color);
@@ -172,7 +172,7 @@
 
 .boxShadow input:focus {
   cursor: auto;
-  border: .05em solid var(--placeholder-color)
+  border: 0.05em solid var(--placeholder-color);
 }
 
 .resetColorsBtn {
@@ -194,7 +194,7 @@
 
 /* This covers the radius for all examples */
 .colorChoices span {
-  border-radius: calc(var(--border-radius) * 0.0625em);
+  border-radius: calc(var(--border-radius));
 }
 
 .boxShadow.darkSide span {

@@ -185,9 +185,9 @@ export function enterColorValue(colorInput, color) {
   }
 }
 
-function changeColorValue(input, cssProp, inputValue) {
+function changeColorValue(input, cssName, inputValue) {
   input.blur()
-  document.body.style.setProperty(`${cssProp}`, `${inputValue}`)
+  document.body.style.setProperty(`${cssName}`, `${inputValue}`)
   postNewSettings()
 }
 

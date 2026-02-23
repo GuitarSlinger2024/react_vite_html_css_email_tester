@@ -17,7 +17,7 @@ const DropdownCheckbox = ({
   setCurrentListName = null,
   name,
   uncheckFavorites,
-  onclick
+  onclick,
 }) => {
   const [checkThis, setCheckThis] = useState(false)
   function toggle() {
@@ -30,39 +30,39 @@ const DropdownCheckbox = ({
   //   console.log(checked)
   //   setCheckThis(checked)
   // }, [checked])
-  
-const styles = Stylesheet.create({
-  container: {
-    position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
-    inlineSize: 'fit-content',
-    userSelect: 'none',
-    cursor: 'pointer'
-  },
-  box: {
-    position: 'relative',
-    boxSizing: 'border-box',
-    flexShrink: '0',
-    border: `.0625em solid ${mode === 'light' ? 'black' : 'white'}`,
-    marginInlineEnd: '.7em',
-    blockSize: '1em',
-    inlineSize: '1em',
-  },
-  img: {
-    position: 'absolute',
-    inlineSize: '170%',
-    insetBlockStart: '-.4em',
-    left: '-.25em',
-  },
-  label: {
-    userSelect: 'none',
-    whiteSpace: 'wrap',
-    textWrap: 'balance',
-    lineHeight: 1,
-    cursor: 'pointer'
-  },
-})
+
+  const styles = Stylesheet.create({
+    container: {
+      position: 'relative',
+      display: 'flex',
+      alignItems: 'center',
+      inlineSize: 'fit-content',
+      userSelect: 'none',
+      cursor: 'pointer',
+    },
+    box: {
+      position: 'relative',
+      boxSizing: 'border-box',
+      flexShrink: '0',
+      border: `.625em solid ${mode === 'light' ? 'black' : 'white'}`,
+      marginInlineEnd: '.7em',
+      blockSize: '1em',
+      inlineSize: '1em',
+    },
+    img: {
+      position: 'absolute',
+      inlineSize: '170%',
+      insetBlockStart: '-.4em',
+      left: '-.25em',
+    },
+    label: {
+      userSelect: 'none',
+      whiteSpace: 'wrap',
+      textWrap: 'balance',
+      lineHeight: 1,
+      cursor: 'pointer',
+    },
+  })
 
   return (
     <div
@@ -72,7 +72,7 @@ const styles = Stylesheet.create({
       onClick={toggle}
       className="checkbox noSelect"
     >
-      <div style={{...styles.box, display: showBox}}>
+      <div style={{ ...styles.box, display: showBox }}>
         {checkThis && (
           <img
             src={mode !== 'dark' ? blackCheck : whiteCheck}
@@ -82,7 +82,10 @@ const styles = Stylesheet.create({
         )}
       </div>
       <label
-        style={{...styles.label, marginLeft: showBox === 'none' ? '.4em' : '0'}}
+        style={{
+          ...styles.label,
+          marginLeft: showBox === 'none' ? '.4em' : '0',
+        }}
         className="checkbox"
       >
         {label}
@@ -92,4 +95,3 @@ const styles = Stylesheet.create({
 }
 
 export default DropdownCheckbox
-

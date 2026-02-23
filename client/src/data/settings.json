@@ -50,24 +50,25 @@
       "text": "hsla( error-bkgrnd ) "
     }
   ],
+
   "blur": [
     {
       "id": "blurInput",
       "value": "10",
       "text": "blur-radius",
-      "cssName": null,
+      "cssName": "--blur-radius",
       "type": "blur"
     },
     {
       "id": "spreadInput",
       "value": "3",
       "text": "spread-radius",
-      "cssName": null,
+      "cssName": "--spread-radius",
       "type": "spread"
     },
     {
       "id": "borderRadius",
-      "value": "1",
+      "value": "3",
       "text": "border-radius",
       "cssName": "--border-radius",
       "type": "border"

@@ -43,10 +43,8 @@ function Header({currentDiv, setCurrentDiv}) {
 
       <a
         href="test_email_forms.zip"
-        id="download_file"
-        download="test_php_mailer.zip"
       >
-        <button>Download Program</button>
+        <button>Github Repo</button>
       </a>
 
       <div className="burger">

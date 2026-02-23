@@ -34,7 +34,6 @@ section.instructions {
   width: 100%;
 }
 
-
 .instructions .instructions {
   box-sizing: border-box;
   width: 100%;
@@ -45,11 +44,10 @@ section.instructions {
   /* background-color: white; */
 }
 
-
 .instructions p,
 .settings p {
-  margin: .9375em;
-  letter-spacing: .0625em;
+  margin: 0.9375em;
+  letter-spacing: 0.0625em;
 }
 
 .instructions ul {
@@ -59,7 +57,7 @@ section.instructions {
 }
 
 .instructions li {
-  margin: .625em 0;
+  margin: 0.625em 0;
 }
 
 .instructions a {

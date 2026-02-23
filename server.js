@@ -72,7 +72,7 @@ app.post('/getTemplates', async (req, res) => {
 
       if (folderIncludesMatchingTitle > -1) {
         fileBranch[currentObjectPath[currentObjectPath.length - 1]] = [...files]
-        console.log(files[folderIncludesMatchingTitle])
+        // console.log(files[folderIncludesMatchingTitle])
       }
 
       if (stats.isDirectory() && folderIncludesMatchingTitle === -1) {
@@ -98,8 +98,8 @@ app.post('/getTemplates', async (req, res) => {
   }
 
   setTimeout(() => {
-    console.log('FILE TREE ARRAY'.red.inverse)
-    console.log(fileTree)
+    // console.log('FILE TREE ARRAY'.red.inverse)
+    // console.log(fileTree)
     res.json(fileTree)
   }, 1000)
 })

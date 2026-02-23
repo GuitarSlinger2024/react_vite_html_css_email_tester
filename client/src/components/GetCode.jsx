@@ -58,10 +58,8 @@ function GetCode({ mode }) {
 
   useEffect(() => {
     const keys = Object.keys(fileTree)
-    if (keys.length === 0) {
-      console.log('empty fileTree:', fileTree)
-      return
-    }
+    if (keys.length === 0) return
+   
     console.log('fileTree', fileTree)
     console.log({ keys })
 

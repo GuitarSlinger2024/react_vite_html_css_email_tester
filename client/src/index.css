@@ -54,24 +54,23 @@ body {
   */
   --body-dark-bkground: #2e3440;
 
-  --image-background: hsla(60, 100%, 60%, 0.25);
-  --cid-background: hsla(25, 76%, 45%, 0.4);
+  --image-background: grey;
+  --cid-background: grey;
 
-  --hls-background: hsla(185, 86%, 60%, 0.35);
+  --hls-background: grey;
 
-  --hex-background: hsla(220, 100%, 50%, 0.4);
+  --hex-background: grey;
 
-  --comment-text: hsla(120, 100%, 35%, 1);
+  --comment-text: grey;
 
-  --error-color: hsla(0, 100%, 50%, 1);
+  --error-color: pink;
 
-  --error-background: hsla(0, 100%, 50%, 0.2);
+  --error-background: grey;
 
-  --border-radius: 15;
-
-  --blur-radius: 10px;
-  --spread-radius: 3px;
-
+  --border-radius: 10px;
+  
+  --blur-radius: 13px;
+  --spread-radius: 13px;
   --box-shadow: 0 0 var(--blur-radius) var(--spread-radius);
 }
 
