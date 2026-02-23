@@ -45,7 +45,7 @@ function Settings({ currentDiv }) {
         <h2>Color Settings</h2>
         <p>
           The values in the center can be seen here in light and dark mode. Any valid css color value can be added (hsl, hex, color names, et.), and a border-radius and
-          box-shadow (blur and spread values) can easily be customized or removed. 
+          box-shadow (blur and spread values) can easily be customized or removed. Have fun.
         </p>
 
         <div
