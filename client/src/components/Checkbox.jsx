@@ -10,26 +10,14 @@ const Checkbox = ({
   mode,
   checked,
   setChecked,
-  showBox = 'block',
   radio = [],
-  showNewMsg = null,
   setCurrentListName = null,
   name,
-  uncheckFavorites,
-  onclick
+  onclick,
 }) => {
   // const [showCheckbox, setShowCheckbox] = useState(true)
   function toggle() {
-    if (showNewMsg) {
-      showNewMsg()
-      uncheckFavorites(name === 'favorites' ? 'all' : name)
-      return
-    }
-    
     if (onclick) onclick()
-
-    //       RETURN if showNewMsg !== null
-    //    So far this is only used for the favorites radio btn
 
     //  This condition checks if it is a radio btn
     if (radio.length > 0) {
@@ -44,44 +32,45 @@ const Checkbox = ({
     setChecked()
 
     const checkbox = document.querySelector(
-      '.option.checkAll div.checkbox'
+      '.option.checkAll .checkbox div img'
     )
+    console.log(checkbox)
     if (checkbox) checkbox.click()
   }
 
-  
-const styles = Stylesheet.create({
-  container: {
-    position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
-    inlineSize: 'fit-content',
-    userSelect: 'none',
-    cursor: 'pointer'
-  },
-  box: {
-    position: 'relative',
-    boxSizing: 'border-box',
-    flexShrink: '0',
-    border: `.0625em solid ${mode === 'light' ? 'black' : 'white'}`,
-    marginInlineEnd: '.7em',
-    blockSize: '1em',
-    inlineSize: '1em',
-  },
-  img: {
-    position: 'absolute',
-    inlineSize: '170%',
-    insetBlockStart: '-.4em',
-    left: '-.25em',
-  },
-  label: {
-    userSelect: 'none',
-    whiteSpace: 'wrap',
-    textWrap: 'balance',
-    lineHeight: 1,
-    cursor: 'pointer'
-  },
-})
+  const styles = Stylesheet.create({
+    container: {
+      position: 'relative',
+      display: 'flex',
+      alignItems: 'center',
+      inlineSize: 'fit-content',
+      userSelect: 'none',
+      cursor: 'pointer',
+    },
+    box: {
+      display: 'block',
+      position: 'relative',
+      boxSizing: 'border-box',
+      flexShrink: '0',
+      border: `.0625em solid ${mode === 'light' ? 'black' : 'white'}`,
+      marginInlineEnd: '.7em',
+      blockSize: '1em',
+      inlineSize: '1em',
+    },
+    img: {
+      position: 'absolute',
+      inlineSize: '170%',
+      insetBlockStart: '-.4em',
+      left: '-.25em',
+    },
+    label: {
+      userSelect: 'none',
+      whiteSpace: 'wrap',
+      textWrap: 'balance',
+      lineHeight: 1,
+      cursor: 'pointer',
+    },
+  })
 
   return (
     <div
@@ -89,8 +78,9 @@ const styles = Stylesheet.create({
       // onChange={toggle}
       onClick={toggle}
       className="checkbox noSelect"
+      checked={checked}
     >
-      <div style={{...styles.box, display: showBox}}>
+      <div style={{ ...styles.box }}>
         {checked && (
           <img
             src={mode !== 'dark' ? blackCheck : whiteCheck}
@@ -100,7 +90,7 @@ const styles = Stylesheet.create({
         )}
       </div>
       <label
-        style={{...styles.label, marginLeft: showBox === 'none' ? '.4em' : '0'}}
+        style={{ ...styles.label, marginLeft: '0' }}
         className="checkbox"
       >
         {label}
@@ -110,4 +100,3 @@ const styles = Stylesheet.create({
 }
 
 export default Checkbox
-

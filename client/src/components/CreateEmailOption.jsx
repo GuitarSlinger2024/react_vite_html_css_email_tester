@@ -4,7 +4,7 @@ import trash from '../_img/trash.png'
 
 export function CreateEmailOption({
   opt,
-  selectOpts,
+  selectAddresses,
   mode,
   deleteAddress,
   emailOptionClicked,
@@ -15,20 +15,19 @@ export function CreateEmailOption({
   return (
     <>
       <span>
-        {selectOpts && (
+        {(
           <DropdownCheckbox
             label=""
             mode={mode}
             checked={false}
-            // setChecked={}
-            // onclick={e => {
-            //   console.log('CHECKBOX')
-            //   checkboxClicked(e)
-            // }}
+            showBox={selectAddresses}
+            onClick={e => {
+              emailOptionClicked(e)
+            }}
           />
         )}
         <p
-          className={`emailOpt ${selectOpts && 'shortened'}`}
+          className={`emailOpt ${selectAddresses && 'shortened'}`}
           onClick={e => {
             emailOptionClicked(e)
           }}
@@ -38,13 +37,15 @@ export function CreateEmailOption({
         </p>
       </span>
 
-      {!selectOpts && <p className="trashCan">
-        <img
-          src={trash}
-          alt="delete button"
-          onClick={deleteAddress}
-        />
-      </p>}
+      {!selectAddresses && (
+        <p className="trashCan">
+          <img
+            src={trash}
+            alt="delete button"
+            onClick={deleteAddress}
+          />
+        </p>
+      )}
     </>
   )
 }

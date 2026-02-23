@@ -8,7 +8,7 @@ function GetCode({ mode }) {
   //  Email Addresses
   const [currentEmail, setCurrentEmail] = useState('')
   const [emailOptions, setEmailOptions] = useState([])
-  const [selectOpts, setSelectOpts] = useState(false)
+  const [selectAddresses, setSelectAddresses] = useState(false)
   //  File Options
   const [fileTree, setFileTree] = useState({})
   const [currentFolder, setCurrentFolder] = useState([])
@@ -59,7 +59,7 @@ function GetCode({ mode }) {
   useEffect(() => {
     const keys = Object.keys(fileTree)
     if (keys.length === 0) return
-   
+
     console.log('fileTree', fileTree)
     console.log({ keys })
 
@@ -87,7 +87,6 @@ function GetCode({ mode }) {
       updateEmails(opts)
     }
   }, [currentEmail])
-
 
   //  email options can also be updated from Dropdown.jsx
 
@@ -123,8 +122,8 @@ function GetCode({ mode }) {
           emptyMsg={'No email addresses have been entered'}
           className={'email'}
           mode={mode}
-          selectOpts={selectOpts}
-          setSelectOpts={setSelectOpts}
+          selectAddresses={selectAddresses}
+          setSelectAddresses={setSelectAddresses}
         />
 
         <FolderDropdown

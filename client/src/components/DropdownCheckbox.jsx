@@ -9,15 +9,7 @@ import { useEffect, useState } from 'react'
 const DropdownCheckbox = ({
   label,
   mode,
-  checked,
-  setChecked,
   showBox = 'block',
-  radio = [],
-  showNewMsg = null,
-  setCurrentListName = null,
-  name,
-  uncheckFavorites,
-  onclick
 }) => {
   const [checkThis, setCheckThis] = useState(false)
   function toggle() {
@@ -25,11 +17,6 @@ const DropdownCheckbox = ({
     //  Set new checked value
     setCheckThis(!checkThis)
   }
-
-  // useEffect(() => {
-  //   console.log(checked)
-  //   setCheckThis(checked)
-  // }, [checked])
   
 const styles = Stylesheet.create({
   container: {
@@ -68,11 +55,10 @@ const styles = Stylesheet.create({
     <div
       style={styles.container}
       checked={`${checkThis}`}
-      // onChange={toggle}
       onClick={toggle}
       className="checkbox noSelect"
     >
-      <div style={{...styles.box, display: showBox}}>
+      <div style={{...styles.box, display: `${showBox ? 'block' : 'none'}`}}>
         {checkThis && (
           <img
             src={mode !== 'dark' ? blackCheck : whiteCheck}

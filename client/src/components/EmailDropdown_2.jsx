@@ -14,8 +14,8 @@ function EmailDropdown({
   emptyMsg,
   className,
   mode,
-  selectOpts,
-  setSelectOpts,
+  selectAddresses,
+  setSelectAddresses,
 }) {
   const [showList, setShowList] = useState(false)
   const [value, setValue] = useState(currentOpt)
@@ -25,7 +25,9 @@ function EmailDropdown({
 
   useEffect(() => {
     if (options.length === 0) return
-    console.log('%c Email Dropdown Orange', 'color: orange;font-size:20px', { options })
+    console.log('%c Email Dropdown Orange', 'color: orange;font-size:20px', {
+      options,
+    })
   }, [options])
 
   useEffect(() => {
@@ -58,7 +60,7 @@ function EmailDropdown({
           checkAllOptionClicked(e)
         }}
       >
-        {selectOpts && (
+        {selectAddresses && (
           <Checkbox
             label=""
             mode={mode}
@@ -167,7 +169,7 @@ function EmailDropdown({
       target.className === 'emailName' || target.className === 'emailDomain'
         ? (target = target.parentElement)
         : target
-    if (selectOpts) {
+    if (selectAddresses) {
       console.log(target.parentElement.querySelector('.checkbox'))
       target.parentElement.querySelector('.checkbox').click()
       setCheckAll(false)
@@ -199,10 +201,12 @@ function EmailDropdown({
             <Checkbox
               label="Select Addresses"
               mode={mode}
-              checked={selectOpts}
-              setChecked={setSelectOpts.bind(null, !selectOpts)}
+              checked={selectAddresses}
+              setChecked={setSelectAddresses.bind(null, !selectAddresses)}
               className="select-addresses"
-              onclick={() => {setNumOfChecksDisplay()}}
+              onclick={() => {
+                setNumOfChecksDisplay()
+              }}
             />
           </div>
 
@@ -238,7 +242,7 @@ function EmailDropdown({
           )} */}
           </div>
 
-          {selectOpts && (
+          {selectAddresses && (
             <div className="selectOptionsMsg">
               <span className="numOfChecks">{numOfChecks}</span> addresses
               selected
@@ -248,10 +252,10 @@ function EmailDropdown({
 
         <div className={`datalist-container`}>
           <datalist className="datalist">
-            {selectOpts && (
+            {selectAddresses && (
               <div
                 className="option checkAll"
-                key={'selectOpts'}
+                key={'selectAddresses'}
               >
                 {createCheckAllOption(['Check All', ''])}
               </div>
@@ -264,7 +268,7 @@ function EmailDropdown({
                 >
                   <CreateEmailOption
                     opt={opt}
-                    selectOpts={selectOpts}
+                    selectAddresses={selectAddresses}
                     mode={mode}
                     deleteAddress={deleteAddress}
                     emailOptionClicked={emailOptionClicked}
