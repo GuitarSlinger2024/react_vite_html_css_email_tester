@@ -48,16 +48,6 @@ function Header({currentDiv, setCurrentDiv}) {
         <button>Github Repo</button>
       </a>
 
-      <div className="burger">
-        <aj-burger
-          size="100%"
-          dur=".3s"
-          color="blue"
-          hover="green"
-          data-active="false"
-          spin
-        ></aj-burger>
-      </div>
     </header>
   )
 }

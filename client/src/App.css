@@ -7,11 +7,65 @@ body {
   margin: auto;
 }
 
-#top-nav-bar {
+#top-nav-bar,
+#infoHeader {
   max-width: 970px;
   margin: auto;
-  box-sizing: border-box;
 }
+
+img#refreshPrev {
+  height: 20px;
+  margin-top: 5px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.dark #refreshPrev {
+  filter: invert(1);
+}
+
+#info {
+  position: relative;
+  min-width: 680px;
+  width: 100%;
+  color: var(--text-color);
+  box-sizing: border-box;
+  height: calc(100vh - 30px);
+  height: 0;
+}
+
+#displayCode {
+  height: calc(100vh - 35px);
+}
+
+#theBottomLine {
+  position: relative;
+  width: 100%;
+  bottom: 5px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  color: var(--text-color);
+  font-weight: 700;
+  padding: 0 20px;
+}
+
+#previewWidth, #upArrow {
+  position: absolute;
+  text-decoration: none;
+  box-sizing: border-box;
+  cursor: pointer !important;
+  width: fit-content;
+  z-index: 1;
+}
+
+#upArrow {
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 10px;
+}
+
 
 /*
 Source - https://stackoverflow.com/a/31355432

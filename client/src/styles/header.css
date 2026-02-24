@@ -1,4 +1,5 @@
-header {
+header,
+#infoHeader {
   display: flex;
   justify-content: space-between;
   position: absolute;
@@ -13,13 +14,21 @@ header {
   z-index: 1;
 }
 
-header ul {
+header ul,
+#showInfo {
   display: flex;
   list-style: none;
+  align-items: center;
 }
 
-header .burger {
-  display: none;
+#showInfo {
+  width: 100%;
+  justify-content: space-between;
+}
+
+#showInfo div {
+  display: flex;
+  align-items: center;
 }
 
 .header-nav-btns li {
@@ -28,12 +37,18 @@ header .burger {
   white-space: nowrap;
 }
 
+#showInfo li {
+  margin-right: 0;
+  margin-left: 1em;
+}
+
 .header-nav-btns {
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
   font-size: 1.2em;
   font-weight: 700;
+  width: 100%;
 }
 
 header a button {
