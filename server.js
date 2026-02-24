@@ -6,6 +6,7 @@ import bodyParser from 'body-parser'
 import DATABASE from './utils/file_functions.js'
 import fs from 'fs'
 import job from './cron.js'
+import TEMPLATE from './utils/getTemplate.js'
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -45,6 +46,14 @@ app.post('/updateAddresses', async (req, res) => {
   await DATABASE.updateAll(emailOptions)
   res.json(emailOptions)
 })
+
+
+app.post('/template', async (req, res) => {
+  const data = req.body.template
+  const template = await TEMPLATE.getTemplate(data)
+  res.json(template)
+})
+
 
 app.post('/getTemplates', async (req, res) => {
   const fileTree = {}
@@ -98,8 +107,6 @@ app.post('/getTemplates', async (req, res) => {
   }
 
   setTimeout(() => {
-    // console.log('FILE TREE ARRAY'.red.inverse)
-    // console.log(fileTree)
     res.json(fileTree)
   }, 1000)
 })

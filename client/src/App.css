@@ -12,3 +12,21 @@ body {
   margin: auto;
   box-sizing: border-box;
 }
+
+/*
+Source - https://stackoverflow.com/a/31355432
+Posted by Свободен Роб, modified by community. See post 'Timeline' for change history
+Retrieved 2026-02-23, License - CC BY-SA 3.0
+*/
+
+.disabled {
+  opacity: 0.4 !important;
+}
+
+.disabled:hover {
+  cursor: not-allowed !important;
+}
+
+.disabled:active {
+  pointer-events: none !important;
+}

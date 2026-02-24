@@ -5,8 +5,12 @@ import FolderDropdown from './FolderDropdown'
 import Checkbox from './Checkbox'
 
 function GetCode({ mode }) {
-  //  Email Addresses
+  //  Data to transfer
   const [currentEmail, setCurrentEmail] = useState('')
+  const [currentTemplate, setCurrentTemplate] = useState('')
+  const [removeComments, setRemoveComments] = useState('only') //  only   all   none   select
+  const [removeBlanks, setRemoveBlanks] = useState('remove') //  remove   reduce   leave
+  //  Email Addresses
   const [emailOptions, setEmailOptions] = useState([])
   const [selectAddresses, setSelectAddresses] = useState(false)
   //  File Options
@@ -14,9 +18,8 @@ function GetCode({ mode }) {
   const [currentFolder, setCurrentFolder] = useState([])
   const [folderPath, setFolderPath] = useState([])
   const [folderOptions, setFolderOptions] = useState([])
-  const [removeComments, setRemoveComments] = useState('only') //  only   all   none   select
-  const [removeBlanks, setRemoveBlanks] = useState('remove') //  remove   reduce   leave
 
+  //  These are simple booleans to help with folder input placeholder
   const [areFolders, setAreFolders] = useState(false)
   const [areTemplates, setAreTemplates] = useState(false)
 
@@ -88,8 +91,20 @@ function GetCode({ mode }) {
     }
   }, [currentEmail])
 
-  //  email options can also be updated from Dropdown.jsx
+  useEffect(() => {
+    if (!currentTemplate) return
 
+    console.log({
+      data: {
+        currentTemplate,
+        folderPath,
+        removeBlanks,
+        removeComments,
+      },
+    })
+  }, [currentTemplate, removeBlanks, removeComments])
+
+  //  email options can also be updated from Dropdown.jsx
   function updateEmails(addresses) {
     try {
       fetch('/updateAddresses', {
@@ -106,6 +121,32 @@ function GetCode({ mode }) {
     } catch (error) {
       console.log(error.message)
     }
+  }
+
+  async function getTemplate(e) {
+    e.preventDefault()
+    e.stopPropagation()
+    if (!currentTemplate) return
+
+    console.log({
+      data: {
+        folderPath,
+        currentTemplate,
+        removeComments,
+        removeBlanks,
+      },
+    })
+
+    const templateData = await fetch('/template', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({template: {folderPath, currentTemplate, removeComments, removeBlanks}})
+    })
+    
+    .then(data => data.json())
+    .then(data => console.log(data))
   }
 
   return (
@@ -129,6 +170,7 @@ function GetCode({ mode }) {
         <FolderDropdown
           label={'Folder:'}
           currentOpt={currentFolder}
+          setCurrentOpt={setCurrentTemplate}
           folderPath={folderPath}
           fileTree={fileTree}
           setFolderPath={setFolderPath}
@@ -136,7 +178,7 @@ function GetCode({ mode }) {
           class={'selectPlaceholder'}
           options={folderOptions}
           setOptions={setFolderOptions}
-          setOption={setCurrentFolder}
+          // setOption={setCurrentFolder}
           emptyMsg={'There are no folders or templates on file'}
           className={'template'}
           areFolders={areFolders}
@@ -208,9 +250,15 @@ function GetCode({ mode }) {
         </div>
 
         <div className="btnContainer">
-          <button id="getCode">Get Code</button>
           <button
-            type="submit"
+            id="getCode"
+            onClick={getTemplate}
+            className={`${!currentTemplate ? 'disabled' : ''}`}
+          >
+            Get Code
+          </button>
+
+          <button
             value="submit"
             name="send-email"
             id="send"

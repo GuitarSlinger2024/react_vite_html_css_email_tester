@@ -67,6 +67,7 @@ function FolderDropdown({
     // else if (target.classList.contains(''))
     else if (!iAmTemplate) newPath = [...folderPath, e.target.textContent]
     setFolderPath(newPath)
+    setCurrentOpt(iAmTemplate ? e.target.textContent : false)
 
     let content = getNewFolderContent(newPath)
     console.log('%c content', 'color: blue;font-weight: 900', content)
