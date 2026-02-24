@@ -9,13 +9,12 @@ main {
   margin: auto;
   z-index: 1;
 
-  top: 3.6em;
   flex-wrap: wrap;
   justify-content: space-evenly;
 
   border: .3125em solid var(--nav-bkgrnd);
   background-color: var(--main-bkground);
-  margin-bottom: 4.6875em;
+  margin-bottom: 2em;
 }
 
 section.getCode,

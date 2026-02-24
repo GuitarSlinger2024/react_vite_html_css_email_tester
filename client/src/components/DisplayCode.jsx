@@ -9,15 +9,22 @@ function DisplayCode() {
   return (
     <>
       <section id="displayCode">
+        <InfoHeader />
         <div id="info">
-          <InfoHeader />
           <InfoBefore />
           <InfoAfter />
           <InfoSnippets />
         </div>
       </section>
       <div id="theBottomLine">
-        <div id="upArrow">Back To Top</div>
+        <div
+          id="toTop"
+          onClick={() => {
+            window.scrollTo(0, 0)
+          }}
+        >
+          Back To Top
+        </div>
       </div>
     </>
   )

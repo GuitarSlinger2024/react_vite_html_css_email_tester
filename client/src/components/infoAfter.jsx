@@ -2,7 +2,7 @@ import React from 'react'
 
 function InfoAfter() {
   return (
-    <div id='preInfo_after'>
+    <div id='preInfo_after' className='preInfo'>
       
     </div>
   )

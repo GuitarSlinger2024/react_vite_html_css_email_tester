@@ -405,7 +405,7 @@ include_once './header.php';
 
 <div id="theBottomLine">
   <div id="previewWidth"></div>
-  <div id="upArrow">Back To Top</div>
+  <div id="toTop">Back To Top</div>
 </div>
 
 </body>

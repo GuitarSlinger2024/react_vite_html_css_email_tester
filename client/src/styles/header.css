@@ -2,7 +2,6 @@ header,
 #infoHeader {
   display: flex;
   justify-content: space-between;
-  position: absolute;
   width: calc(100% - 2em);
   min-width: 40em;
   height: 4em;
