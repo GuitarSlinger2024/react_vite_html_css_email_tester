@@ -27,20 +27,21 @@ img#refreshPrev {
 #info {
   position: relative;
   min-width: 680px;
-  width: 100%;
+  width: calc(100% - 2em);
   color: var(--text-color);
   box-sizing: border-box;
-  height: calc(100vh - 5em);
+  height: calc(100vh - 6em);
+  margin: auto;
+  border: 5px solid var(--header-bkground);
 }
 
 .preInfo, #notPre {
   position: absolute;
-  width: calc(100% - 2em);
+  width: 100%;
   min-width: 680px;
-  height: calc(100vh - 5.7em);
+  height: 100%;
   color: var(--text-color);
   background-color: var(--background-color);
-  border: 5px solid var(--header-bkground);
   transition: opacity .3s;
   font-size: 1.1rem;
   pointer-events: none;
