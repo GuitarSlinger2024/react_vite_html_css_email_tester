@@ -3,7 +3,7 @@ import './App.css'
 import TopOfScreen from './components/TopOfScreen'
 import Header from './components/Header'
 import Main from './components/main'
-import DisplayCode from './components/DisplayCode'
+import DisplayCode from './components/displayPages/DisplayCode'
 
 function App() {
   const [mode, setMode] = useState('dark')
@@ -11,9 +11,18 @@ function App() {
 
   return (
     <>
-      <TopOfScreen mode={mode} setMode={setMode}/>
-      <Header currentDiv={currentDiv} setCurrentDiv={setCurrentDiv} />
-      <Main currentDiv={currentDiv} mode={mode}/>
+      <TopOfScreen
+        mode={mode}
+        setMode={setMode}
+      />
+      <Header
+        currentDiv={currentDiv}
+        setCurrentDiv={setCurrentDiv}
+      />
+      <Main
+        currentDiv={currentDiv}
+        mode={mode}
+      />
       <DisplayCode />
     </>
   )

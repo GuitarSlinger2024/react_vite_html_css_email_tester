@@ -60,13 +60,13 @@ img#refreshPrev {
 #theBottomLine {
   position: relative;
   width: 100%;
-  bottom: 5px;
+  display: flex;
+  align-items: center;
   margin: auto;
-  left: 0;
+  height: 2em;
   right: 0;
   color: var(--text-color);
   font-weight: 700;
-  padding: 0 20px;
 }
 
 #previewWidth,

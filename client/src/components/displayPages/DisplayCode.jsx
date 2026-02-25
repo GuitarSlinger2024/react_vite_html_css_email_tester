@@ -1,7 +1,7 @@
 import React from 'react'
-import '../styles/header.css'
+import '../../styles/header.css'
 import InfoHeader from './InfoHeader'
-import InfoSnippets from './infoSnippets'
+import InfoSnippets from './InfoSnippets'
 import InfoAfter from './infoAfter'
 import InfoBefore from './InfoBefore'
 

@@ -1,4 +1,3 @@
-
 <!-- 
   
 $folder_path = $_SESSION['template_dir']['current_folder'];
@@ -15,55 +14,6 @@ $remove_blanks = Input::get('blanks');
 <?php
 
 
-
-//  Get the name of the image folder used with this template
-$folder_names = ['images', 'img', '_img'];
-$image_folder = '';
-foreach ($folder_names as $name) {
-  if (is_dir($folder_path . '/' . $name))
-    $image_folder = $name;
-}
-
-//  Check that the path and filename is correct (needed? not user input?)
-//if (!is_file($file_path) || !is_dir($folder_path)) {
-//  return_data(['error' => 'invalidData', 'errorNum' => '2', 'path' => $file_path, 'folder' => $folder_path]);
-//  exit();
-//}
-
-
-$template = $old_template = file_get_contents($file_path);
-$new_template = null;
-$images = [];
-
-$lastPos = 0;
-//  strpos returns false if the 'needle' is not in the 'haystack'
-while (($lastPos = strpos($template, "<img", $lastPos)) !== false) {
-  $subString = substr($template, strpos($template, 'src', $lastPos) + 3, 50);
-
-  //  does not happen if double quotes are used
-  if (!strpos($subString, '"') || strpos($subString, '"') > 5) {
-    echo json_encode(['error' => 'invalidChars', 'form' => $file_name]);
-    exit();
-  }
-
-  $subString = substr($subString, strpos($subString, '"') + 1);
-  $subString = substr($subString, 0, strpos($subString, '"'));
-  $full_name = '"' . $subString . '"';
-
-  $stringArray = explode('/', $subString);
-  $subString = array_pop($stringArray);
-  $image_name = '"' . $subString . '"';
-
-  $images[] = ['file_name' => $image_name, 'full_name' => $full_name];
-  $lastPos = $lastPos + 5;
-}
-
-$new_template = $template;
-for ($x = 0; $x < count($images); $x++) {
-  $reference = '"image_' . ($x + 1) . '"';
-  $new_template = str_replace($images[$x]['full_name'], '"cid:' . substr($reference, 1), $new_template);
-  $images[$x]['reference'] = $reference;
-}
 
 //                     Add in User's full name and confirmation code
 $new_template = str_replace('[NameHere]', $user_full_name, $new_template);
@@ -121,10 +71,11 @@ foreach ($images as $imgObj) {
   $php_code2 .= $code;
 }
 
-function getComments($new) {
+function getComments($new)
+{
   //   HTML comments   <!--   -->
   preg_match_all("/<!--(?!>)[\S\s]*?-->/", $new, $comments1, PREG_PATTERN_ORDER);
-  
+
   //   CSS comments  /* */
   preg_match_all("/\s*(?!<\")\/\*[^\*]+\*\/(?!\")\s*/", $new, $comments2, PREG_PATTERN_ORDER);
 
@@ -133,7 +84,8 @@ function getComments($new) {
   return $comments;
 }
 
-function removeCommentsFunc($new, $comments) {
+function removeCommentsFunc($new, $comments)
+{
   $removed = [];
   foreach ($comments as $key => $value) {
     if (strpos($new, $value) !== false) {
@@ -146,7 +98,8 @@ function removeCommentsFunc($new, $comments) {
 }
 
 
-function addColor($new) {
+function addColor($new)
+{
   // return
   preg_match_all("/<!--(?!>)[\S\s]*?-->/", $new, $html, PREG_PATTERN_ORDER);
   if (count($html[0]) > 0)

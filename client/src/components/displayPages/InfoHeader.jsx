@@ -1,5 +1,5 @@
 import React from 'react'
-import image from '../_img/6d584fb48005.svg'
+import image from '../../_img/6d584fb48005.svg'
 
 function InfoHeader() {
   function refreshInfo(params) {
