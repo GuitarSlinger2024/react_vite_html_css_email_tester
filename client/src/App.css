@@ -2,20 +2,21 @@ body {
   color: var(--text-color);
   background-color: var(--body-bkground);
   transition: background-color 0.3s;
-
-  max-width: 1000px;
-  margin: auto;
+/* This should be in px */
+max-width: 1000px;
+margin: auto;
 }
 
 #top-nav-bar,
 #infoHeader {
+  /* This should be in px */
   max-width: 970px;
   margin: auto;
 }
 
 img#refreshPrev {
-  height: 20px;
-  margin-top: 5px;
+  height: 1.25em;
+  margin-top: .3125em;
   cursor: pointer;
   z-index: 100;
 }
@@ -26,19 +27,17 @@ img#refreshPrev {
 
 #info {
   position: relative;
-  min-width: 680px;
   width: calc(100% - 2em);
   color: var(--text-color);
   box-sizing: border-box;
   height: calc(100vh - 6em);
   margin: auto;
-  border: 5px solid var(--header-bkground);
+  border: .3125em solid var(--header-bkground);
 }
 
 .preInfo, #notPre {
   position: absolute;
   width: 100%;
-  min-width: 680px;
   height: 100%;
   color: var(--text-color);
   background-color: var(--background-color);
@@ -54,7 +53,7 @@ img#refreshPrev {
 }
 
 #displayCode {
-  height: calc(100vh - 35px);
+  height: calc(100vh - 2.5em);
 }
 
 #theBottomLine {
@@ -83,7 +82,7 @@ img#refreshPrev {
   left: 0;
   right: 0;
   margin: 0 auto;
-  padding: 10px;
+  padding: .625em;
 }
 
 /*
