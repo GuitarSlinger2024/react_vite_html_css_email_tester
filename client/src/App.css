@@ -104,3 +104,8 @@ Retrieved 2026-02-23, License - CC BY-SA 3.0
   pointer-events: none !important;
 }
 
+.noSelect {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}

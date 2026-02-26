@@ -8,7 +8,7 @@ function InfoHeader() {
 
   return (
     <nav id="infoHeader">
-      <div class="header-nav-btns">
+      <div class="header-nav-btns noSelect">
         <ul id="showInfo">
           <div onClick={refreshInfo}>
             <img id="refreshPrev" src={image} alt="Refresh Preview"/>
