@@ -1,0 +1,23 @@
+.iframe-container {
+
+  position: absolute;
+  min-width: fit-content;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  /* padding-top: 56.25%; */
+
+
+  /* border-left: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black; */
+  /* padding-top: 56.25%; */
+  /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+iframe {
+  border: none;
+}

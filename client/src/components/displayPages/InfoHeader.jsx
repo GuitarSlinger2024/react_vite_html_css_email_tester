@@ -16,17 +16,18 @@ function InfoHeader() {
           </div>
           <div style={{
             display: 'flex'
-          }}>
+          }}
+          >
             <li id="showOldHTML" onClick={refreshInfo}>
               Before
             </li>
             <li id="showNewHTML" onClick={refreshInfo}>
               After
             </li>
-            <li id="showArray" onClick={refreshInfo}>
+            <li id="showArray" onClick={refreshInfo} className='disabled'>
               Values
             </li>
-            <li id="showPHP" onClick={refreshInfo}>
+            <li id="showPHP" onClick={refreshInfo} className='disabled'>
               Snippets
             </li>
           </div>

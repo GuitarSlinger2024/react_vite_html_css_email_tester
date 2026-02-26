@@ -4,7 +4,7 @@ import EmailDropdown from './EmailDropdown_2'
 import FolderDropdown from './FolderDropdown'
 import Checkbox from './Checkbox'
 
-function GetCode({ mode }) {
+function GetCode({ mode, templateData, setTemplateData }) {
   //  Data to transfer
   const [currentEmail, setCurrentEmail] = useState('')
   const [currentTemplate, setCurrentTemplate] = useState('')
@@ -137,16 +137,20 @@ function GetCode({ mode }) {
       },
     })
 
-    const templateData = await fetch('/template', {
+    fetch('/template', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({template: {folderPath, currentTemplate, removeComments, removeBlanks}})
+      body: JSON.stringify({
+        template: { folderPath, currentTemplate, removeComments, removeBlanks },
+      }),
     })
-    
-    .then(data => data.json())
-    .then(data => console.log(data))
+      .then(data => data.json())
+      .then(data => {
+        console.log('data', data )
+        setTemplateData(data)
+      })
   }
 
   return (

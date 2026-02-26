@@ -1,3 +1,4 @@
+import 'colors'
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -20,7 +21,7 @@ export async function getTemplate(templateData) {
 
   //  Check that the template file exists - then get the file
   const isTemplate = fs.existsSync(templatePath)
-  const templateHtml = fs.readFileSync(templatePath, 'utf8')
+  const originalHTML = fs.readFileSync(templatePath, 'utf8')
 
   //  Get the name of the image folder
   const imgFolderNames = ['images', '_img', '_imgs']
@@ -29,15 +30,15 @@ export async function getTemplate(templateData) {
     imgFolderNames.includes(folder)
   )[0]
 
-  //  Get the HTML - init some variables
-  const old_template = templateHtml
+  //  Get the HTML - init some variables3333333
+  const old_template = originalHTML
   const new_template = null
-  const images = []
+  const images = {}
 
   let lastPos = 0
-  while ((lastPos = templateHtml.indexOf('<img', lastPos)) !== -1) {
-    let subString = templateHtml.substring(
-      templateHtml.indexOf('src', lastPos) + 3
+  while ((lastPos = originalHTML.indexOf('<img', lastPos)) !== -1) {
+    let subString = originalHTML.substring(
+      originalHTML.indexOf('src', lastPos) + 3
     )
     subString = subString.substring(subString.indexOf('"') + 1)
     subString = subString.substring(0, subString.indexOf('"'))
@@ -47,36 +48,43 @@ export async function getTemplate(templateData) {
     const subString2 = subString.split('/').pop()
     const imageName = `${subString2}`
 
-    images.push({ fileName: imageName, filePath: filePath })
+    const image = path.join(folderPath, filePath)
+    const file = fs.readFileSync(image, { encoding: 'utf8' })
 
+    const ref = imageName.replace('.', '')
+    images[ref] = { fileName: imageName, filePath: filePath, file }
+
+    console.log(String(lastPos).blue)
     lastPos += 5
   }
 
-  let newTemplate = templateHtml
+   //  Planning to do the src in front end
+  let templateHtml = originalHTML
   for (let x = 0; x < images.length; x++) {
-    const reference = '"image_' + (x + 1) + '"'
-    newTemplate = newTemplate.replaceAll(
-      images[x]['full_name'],
-      '"cid:' + reference,
-      
+    const fileName = images[x].fileName.split('.').join('')
+    console.log(
+      images[x]['filePath'].cyan,
+      // path.join(folderPath, images[x][fileName].file)
     )
-    images[x]['reference'] = reference
+    templateHtml = templateHtml.replaceAll(
+      images[x]['filePath'],
+      path.join(folderPath, images[x]['filePath'])
+    )
   }
-
-  return {
-    html: {
-      templateHtml,
-      newTemplate,
-      templateData,
-    },
-    folderData: {
-      templatePath,
+  const data = {
+    originalHTML,
+    templateData,
+    templatePath,
+    imageData: {
       imageFolder,
       images,
-      folderContents,
     },
-    'Hello': 'kitties!'
+    Hello: 'kitties!',
   }
+
+  console.log(data)
+
+  return data
 }
 
 export default { getTemplate }

@@ -8,6 +8,8 @@ import DisplayCode from './components/displayPages/DisplayCode'
 function App() {
   const [mode, setMode] = useState('dark')
   const [currentDiv, setCurrentDiv] = useState('')
+  const [templateData, setTemplateData] = useState({originalHtml: null})
+
 
   return (
     <>
@@ -22,8 +24,13 @@ function App() {
       <Main
         currentDiv={currentDiv}
         mode={mode}
+        templateData={templateData}
+        setTemplateData={setTemplateData}
+        />
+      <DisplayCode 
+        templateData={templateData}
+        setTemplateData={setTemplateData}
       />
-      <DisplayCode />
     </>
   )
 }

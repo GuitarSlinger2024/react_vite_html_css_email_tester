@@ -2,6 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "main": "server.js",
+  "protocol": "http://localhost:8180",
   "scripts": {
     "start": "node --env-file=.env server",
     "dev": "nodemon --env-file=.env server"

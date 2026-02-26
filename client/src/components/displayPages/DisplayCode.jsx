@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../../styles/header.css'
 import InfoHeader from './InfoHeader'
+import InfoView from './InfoView'
 import InfoSnippets from './InfoSnippets'
 import InfoAfter from './infoAfter'
 import InfoBefore from './InfoBefore'
 
-function DisplayCode() {
+function DisplayCode({templateData, setTemplateData}) {
+
   return (
     <>
       <section id="displayCode">
         <InfoHeader />
         <div id="info">
+          <InfoView
+                  templateData={templateData}
+                  setTemplateData={setTemplateData}
+          />
           <InfoBefore />
           <InfoAfter />
           <InfoSnippets />
