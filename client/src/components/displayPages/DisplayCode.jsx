@@ -22,7 +22,7 @@ function DisplayCode({templateData, setTemplateData}) {
           <InfoSnippets />
         </div>
       </section>
-      <div id="theBottomLine">
+      <div id="theBottomLine" className='noSelect'>
         <div
           id="toTop"
           onClick={() => {
