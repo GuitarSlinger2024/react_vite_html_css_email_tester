@@ -10,7 +10,7 @@ function InfoHeader() {
     <nav id="infoHeader">
       <div class="header-nav-btns noSelect">
         <ul id="showInfo">
-          <div onClick={refreshInfo}>
+          <div onClick={refreshInfo} className='noSelect'>
             <img id="refreshPrev" src={image} alt="Refresh Preview"/>
             <li id="viewTemplate">Refresh</li>
           </div>
