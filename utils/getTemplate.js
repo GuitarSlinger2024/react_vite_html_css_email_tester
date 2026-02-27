@@ -1,6 +1,7 @@
 import 'colors'
 import fs from 'fs'
 import path from 'path'
+import mime from 'mime'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
 const __filename = fileURLToPath(import.meta.url)
@@ -19,6 +20,7 @@ export async function getTemplate(templateData) {
     `${templateData.currentTemplate}.html`
   )
 
+
   //  Check that the template file exists - then get the file
   const isTemplate = fs.existsSync(templatePath)
   const originalHTML = fs.readFileSync(templatePath, 'utf8')
@@ -36,6 +38,7 @@ export async function getTemplate(templateData) {
   const images = {}
 
   let lastPos = 0
+  let templateHtml = originalHTML
   while ((lastPos = originalHTML.indexOf('<img', lastPos)) !== -1) {
     let subString = originalHTML.substring(
       originalHTML.indexOf('src', lastPos) + 3
@@ -47,32 +50,43 @@ export async function getTemplate(templateData) {
 
     const subString2 = subString.split('/').pop()
     const imageName = `${subString2}`
+    
+    const imagePath = path.join(folderPath, filePath)
+    const file = fs.readFileSync(imagePath)
+    const file64 = Buffer.from(file).toString('base64')
+    let mime_type = mime.getType(imagePath)
+    // mime_type = 'image/png'
 
-    const image = path.join(folderPath, filePath)
-    const file = fs.readFileSync(image, { encoding: 'utf8' })
+    console.log(mime_type.rainbow)
+
+    templateHtml = templateHtml.replace(filePath, `data:${mime_type};base64,${file64}`)
 
     const ref = imageName.replace('.', '')
-    images[ref] = { fileName: imageName, filePath: filePath, file }
+    images[ref] = { fileName: imageName, filePath: filePath, file64 }
 
     console.log(String(lastPos).blue)
     lastPos += 5
   }
 
-   //  Planning to do the src in front end
-  let templateHtml = originalHTML
-  for (let x = 0; x < images.length; x++) {
-    const fileName = images[x].fileName.split('.').join('')
-    console.log(
-      images[x]['filePath'].cyan,
-      // path.join(folderPath, images[x][fileName].file)
-    )
-    templateHtml = templateHtml.replaceAll(
-      images[x]['filePath'],
-      path.join(folderPath, images[x]['filePath'])
-    )
-  }
+  //  //  Planning to do the src in front end
+  // let templateHtml = originalHTML
+  // for (let x = 0; x < images.length; x++) {
+  //   const fileName = images[x].fileName.split('.').join('')
+  //   // console.log(
+  //   //   images[x]['filePath'].cyan,
+  //   //   path.join(folderPath, images[x][fileName].file64)
+  //   // )
+  //   console.log(String(templateHtml.strpos(images[x]['filePath'])).red)
+  //   templateHtml = templateHtml.replaceAll(
+  //     images[x]['filePath'],
+  //     path.join(folderPath, `data"[image/png;base64,${images[x]['filePath']}`)
+  //   )
+  // }
+
   const data = {
+    folderPath,
     originalHTML,
+    templateHtml,
     templateData,
     templatePath,
     imageData: {
@@ -82,7 +96,7 @@ export async function getTemplate(templateData) {
     Hello: 'kitties!',
   }
 
-  console.log(data)
+  // console.log(images)
 
   return data
 }

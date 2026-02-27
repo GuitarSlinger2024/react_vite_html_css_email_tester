@@ -18,6 +18,7 @@
     "cors": "^2.8.6",
     "cron": "^4.4.0",
     "express": "^5.2.1",
+    "mime": "^4.1.0",
     "path": "^0.12.7"
   },
   "devDependencies": {

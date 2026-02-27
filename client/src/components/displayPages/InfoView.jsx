@@ -8,22 +8,27 @@ function InfoView({ templateData, setTemplateData }) {
   useEffect(() => {
     console.log({ InfoView: templateData })
     //  This would be where to process the html to display the images
-    setViewedHTML(templateData?.originalHTML || null)
+
+    // setViewedHTML(templateData?.originalHTML || null)
+
+    setViewedHTML(templateData?.templateHtml || null)
+
+    console.log(templateData.templateHtml)
     
-    const iframe = document.getElementById('my-iframe')
+    // const iframe = document.getElementById('my-iframe')
     
-    iframe.addEventListener('load', () => {
-      const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-      if (!iframeDoc) {
-        console.error('Failed to access iframe document (check origin).');
-        return;
-      }
+    // iframe.addEventListener('load', () => {
+    //   // const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+    //   // if (!iframeDoc) {
+    //   //   console.error('Failed to access iframe document (check origin).');
+    //   //   return;
+    //   // }
      
-      console.log('Iframe title:', iframeDoc.title); // Access iframe's title
-      // const doc = iframeElement.document || iframeElement.contentDocument;
-      // const images = doc.getElementsByTagName('img')
-      // console.log(images)
-    })
+    //   // console.log('Iframe title:', iframeDoc.title); // Access iframe's title
+    //   // const doc = iframeElement.document || iframeElement.contentDocument;
+    //   // const images = doc.getElementsByTagName('img')
+    //   // console.log(images)
+    // })
     
 
     // setTimeout(() => {
