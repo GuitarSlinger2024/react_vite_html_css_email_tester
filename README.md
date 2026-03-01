@@ -12,6 +12,6 @@ There are two downsides that I am working on. First, there are two 'email_forms'
 
 The reason for this is because of the folder navigation. I can't seem to find a way to read the folder names from the public folder for the folder dropdown menu, so this info is attained with a post request to the server. But I also can get the html templates to render (with images) from the backend because of cors restrictions that I haven't found the right answer to. Some old zonbie code is left commented out because of ideas I was working with.
 
-with the server side running in a localhost environment, HTML CSS email developers should work on new templates in the client side folder, and 'npm run build' each time the code is edited. Not too bad. Also run build before deploying it if the server does not do this automatically. If your server does include run build, then .gitignore should include 'client'.
+with the server side running in a localhost environment, HTML CSS email developers should work on new templates in the client side folder. Then each time the code is edited ypu'll need to 'npm run build', refresh the browser and navigate back to the template. Also 'npm run build' before deploying it if the server does not do this automatically. otherwise the .gitignore should include 'client' or 'client/*.
 
 The second is that  
