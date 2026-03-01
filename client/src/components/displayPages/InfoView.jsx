@@ -9,11 +9,12 @@ function InfoView({ templateData, setTemplateData }) {
     console.log({ InfoView: templateData })
     //  This would be where to process the html to display the images
 
-    // setViewedHTML(templateData?.originalHTML || null)
+    // setViewedHTML(templateData?.templateHtml || null)
 
-    setViewedHTML(templateData?.templateHtml || null)
-
-    console.log(templateData.templateHtml)
+    // setViewedHTML(templateData?.folderData?.relativePath || null)
+    setViewedHTML(templateData?.relativePath || null)
+    // console.log(templateData?.folderData?.relativePath)
+    console.log(templateData?.relativePath)
     
     // const iframe = document.getElementById('my-iframe')
     
@@ -50,17 +51,17 @@ function InfoView({ templateData, setTemplateData }) {
         ref={frameRef}
         
         sandbox="allow-downloads"
-          // width="100%"
-          // height="100%"
           // src="https://www.youtube.com/embed/tmg6d3T_T6Q"
-          // src={templateData.html.templateHtml : null}
+
+          // C:\xampp\htdocs\program_files\___github_repositories\with_php\email_tester_vite\server\email_forms\the_course\snowy_gif\snowy_gif.html
+          src={viewedHTML}
           //
-          src={
-            viewedHTML
-              ? 'data:text/html,' +
-                encodeURIComponent(viewedHTML)
-              : null
-          }
+          // src={
+          //   viewedHTML
+          //     ? 'data:text/html,' +
+          //       encodeURIComponent(viewedHTML)
+          //     : null
+          // }
           title="Preview HTML CSS Emails"
         ></iframe>
       </div>

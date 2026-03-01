@@ -56,6 +56,7 @@ const Checkbox = ({
       marginInlineEnd: '.7em',
       blockSize: '1em',
       inlineSize: '1em',
+      pointerEvents: 'none'
     },
     img: {
       position: 'absolute',

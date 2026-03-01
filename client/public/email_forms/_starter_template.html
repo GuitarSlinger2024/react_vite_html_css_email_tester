@@ -1,0 +1,269 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!--
+				This is a general composite with comments for email templates
+-->
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- The title is mostly only useful if email is sent to a live page -->
+	<title>w3newbie HTML Email</title>
+	<style type="text/css">
+		/*  The is to override presets that some email clients may use  */
+		body {
+			Margin: 0;
+      padding: 0;
+			background-color: #cccccc;
+		}
+
+		table {
+			border-spacing: 0;
+		}
+
+		td {
+			padding: 0;
+		}
+
+		img {
+			border: 0;
+		}
+
+		/*  The beginning of code more specific for this email  */
+
+		.wrapper {
+			width: 100%;
+      /* fixed makes sure nothing is displayed outside parent elements */
+			table-layout: fixed;
+
+			/* personal taste */
+			background-color: #ccc;
+			padding-bottom: 30px;
+		}
+
+		.main {
+			margin: 0 auto;
+			width: 100%;
+			max-width: 600px;
+			border-spacing: 0;
+
+			/* personal taste */
+			background-color: #ffffff;
+			font-family: sans-serif;
+			color: #4a4a4a;
+		}
+
+		@media screen and (max-width: 600px) {}
+	</style>
+</head>
+
+<body>
+
+	<center class="wrapper">
+
+		<table class="main">
+
+			<!-- For best practice, label each table row with a comment -->
+
+			<!-- example row #1 with normal content-->
+			<tr>
+				<td>
+
+					<!-- Layering an extra table is needed IF the table row takes up less than 100% of the space -->
+					<table width="100%">
+
+						<tr>
+							<!-- background color and any borders can be added here -->
+							<td style="text-align: center;">
+
+								<a href="#"><img src="images/html-email.png" alt="Logo" title="Logo" width="300pc"></a>
+
+							</td>
+						</tr>
+
+					</table>
+
+				</td>
+			</tr>
+
+			<!-- example row #2 with content that takes up the full 100% width-->
+			<tr>
+				<td>
+
+					<!-- Adding in an extra table is not needed IF the table row takes up 100% of the space -->
+
+				</td>
+			</tr>
+
+
+			<!-- example row #3 with two columns -->
+			<tr>
+				<td>
+
+					<table width="100%">
+
+						<tr>
+							<td class="two-columns">
+
+								<table class="column">
+									<tr>
+										<!-- Like the first tr / td, this is to add padding where the content is less than 100% width -->
+										<td class="padding">
+
+											<!-- One last table to center content that is lest than 100% width of column -->
+											<table class="content">
+
+												<tr>
+													<td>
+														<!-- image: width 260 gives room for padding -->
+														<a href="#"><img src="" width="260" style="max-width: 260px;" alt=""></a>
+													</td>
+												</tr>
+
+												<tr>
+													<td style="padding: 10px">
+														<p style="font-size: 17px; font-weight: bold;">
+															Text Heading
+														</p>
+														<p style="padding-bottom: 15px;">
+															Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptas recusandae
+															adipisci!
+														</p>
+														<a href="#" class="btn">HTML Email</a>
+													</td>
+												</tr>
+											</table>
+
+
+										</td>
+									</tr>
+								</table>
+
+								<table class="column">
+									<tr>
+										<!-- Like the first tr / td, this is to add padding where the content is less than 100% width -->
+										<td class="padding">
+
+											<!-- One last table to center content that is lest than 100% width of column -->
+											<table class="content">
+
+												<tr>
+													<td>
+														<!-- image: width 260 gives room for padding -->
+														<a href="#"><img src="" width="260" style="max-width: 260px;" alt=""></a>
+													</td>
+												</tr>
+
+												<tr>
+													<td style="padding: 10px">
+														<p style="font-size: 17px; font-weight: bold;">
+															Text Heading
+														</p>
+														<p style="padding-bottom: 15px;">
+															Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptas recusandae
+															adipisci!
+														</p>
+														<a href="#" class="btn">HTML Email</a>
+													</td>
+												</tr>
+											</table>
+
+										</td>
+									</tr>
+								</table>
+
+								<!-- the padding will disappear once under the 600px breakpoint while the image get larger -->
+							</td>
+						</tr>
+
+					</table>
+
+				</td>
+			</tr>
+
+
+			<!-- example row #4 with two columns with contents that span the with of the column -->
+			<tr>
+				<td>
+
+					<table width="100%">
+
+						<tr>
+							<td class="two-columns last">
+
+								<!-- One last table is added for new column -->
+								<table class="column">
+
+									<tr>
+										<td>
+											<!-- width 300 gives room for padding -->
+											<a href="#"><img src="images/email-1.jpg" width="300"
+													style="max-width: 300px; border-radius: 8px;" alt=""></a>
+										</td>
+									</tr>
+
+								</table>
+
+								<!-- One last table is added for new column -->
+								<table class="column">
+
+									<tr>
+										<td>
+											<!-- width 300 gives room for padding -->
+											<a href="#"><img src="images/email-2.jpg" width="300"
+													style="max-width: 300px; border-radius: 8px;" alt=""></a>
+										</td>
+									</tr>
+
+								</table>
+
+								<!-- the padding will disappear once under the 600px breakpoint while the image get larger -->
+							</td>
+						</tr>
+
+					</table>
+
+				</td>
+			</tr>
+
+			<!-- example row #5  Footer -->
+			<tr>
+				<td>
+					<table width="100%">
+
+						<tr>
+							<td style="padding: 50px 20px;text-align: center; color: #fff;">
+
+								<!-- Company Logo if there is one, or just the company name with a <p> tag -->
+								<!-- <a href="#"><img src="images/html-email-white.png" width="230" alt=""></a> -->
+								<p style="padding-top: 10px;">Company Name</p>
+								<p>Company Address, City, State zip</p>
+								<p style="padding-top: 15px;">
+									<a href="mailto:mailto:companyEmailAddress">mailto:companyEmailAddress</a>
+								</p>
+								<p>
+									<a href="tel:phone number">phone number</a>
+								</p>
+								<p style="font-size: 13px;padding-top: 15px;"><a href="#">UNSUBSCRIBE</a></p>
+							</td>
+						</tr>
+
+					</table>
+				</td>
+			</tr>
+
+			<!-- example row #6 -->
+
+
+		</table>
+
+	</center>
+
+
+
+</body>
+
+</html>

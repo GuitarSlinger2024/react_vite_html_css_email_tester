@@ -27,12 +27,11 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 
 app.use((req, res, next) => {
-  // res.header("Access-Control-Allow-Origin", "*");
-  // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  // res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.header("Access-Control-Allow-Origin", "http://localhost:8180");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next();
 });
-
 app.get('/api/health', (req, res) => {
   res.json({health: 'good'})
 })
