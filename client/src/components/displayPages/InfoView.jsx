@@ -11,11 +11,11 @@ function InfoView({ templateData, setTemplateData }) {
 
     // setViewedHTML(templateData?.templateHtml || null)
 
-    setViewedHTML(templateData?.templatePath || null)
-    console.log(templateData?.templatePath)
+    // setViewedHTML(templateData?.templatePath || null)
+    // console.log(templateData?.templatePath)
 
-    // setViewedHTML(templateData?.relativePath || null)
-    // console.log(templateData?.relativePath)
+    setViewedHTML(templateData?.relativePath || null)
+    console.log(templateData?.relativePath)
     
     // const iframe = document.getElementById('my-iframe')
     
